@@ -17,5 +17,12 @@ geometry:
 - bottom=4cm
 ...
 
+# Executive Summary
+
 # Introduction
 
+# Methods
+
+# Results
+
+# Conclusion
