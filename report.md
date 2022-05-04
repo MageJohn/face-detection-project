@@ -109,8 +109,14 @@ such as identity recognition, facial behaviour analysis, lip reading, 3D face
 reconstruction, or face editing, to name a few examples
 [@dengMenpoBenchmarkMultipose2019].
 
-```{#fig:landmarkExample .gnuplot format=PNG caption="Example of a face from the 300W face database [@sagonas300FacesInTheWild2016] with a set of 68 landmark points annotated. The 68 point pattern was first used for the Multi-PIE [@grossMultiPIE2010] database, but has since been used on many other databases [@sagonas300FacesInTheWild2016]."}
-call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" "Datasets/300w_cropped/01_Indoor/indoor_225.pts" 
+```{
+    #fig:landmarkExample
+    .gnuplot
+    format=PNG
+    dependencies="[gnuplot/render_pts.gp, gnuplot/process_pts.awk]"
+    caption="Example of a face from the 300W face database [@sagonas300FacesInTheWild2016] with a set of 68 landmark points annotated. The 68 point pattern was first used for the Multi-PIE [@grossMultiPIE2010] database, but has since been used on many other databases [@sagonas300FacesInTheWild2016]."
+    }
+call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
 ```
 
 <!-- Rethink this paragraph. The assertion that combining detection and
