@@ -1,0 +1,10 @@
+In all cases see Zotero for more related links
+
+Asthana et al: https://ibug.doc.ic.ac.uk/download/aasthana_cvpr2013_code.zip
+
+Merget et al:
+  https://webdisk.ads.mwn.de/Handlers/AnonymousDownload.ashx?folder=18e2eac4&path=Datenbanken\Merget.zip
+  https://webdisk.ads.mwn.de/Handlers/AnonymousDownload.ashx?folder=18e2eac4&path=Datenbanken\Merget_heatmap_python_o2.zip
+
+Zhu and Ramanan:
+  https://web.archive.org/web/20180427144541/http://www.ics.uci.edu/~xzhu/face/face-release1.0-basic.zip
