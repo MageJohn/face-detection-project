@@ -1,5 +1,8 @@
 plots/
-Code/
+Implementations/*
+src/venv/
+src/.*/
+__pycache__/
 Datasets/
 report.tex
 ieee.csl
