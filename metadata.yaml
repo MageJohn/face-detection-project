@@ -1,0 +1,31 @@
+---
+# Non-content metadata
+
+documentclass: scrreprt
+classoption:
+- titlepage
+- parskip=full
+
+mainfont: "TeX Gyre Heros"
+fontsize: 12pt
+
+geometry:
+- left=4cm
+- right=4cm
+- top=2.5cm
+- bottom=4cm
+
+numbersections: true
+toc: true
+toc-depth: 2
+
+indent: true # stops pandoc overriding parskip
+colorlinks: true
+
+bibliography: bibliography.yaml
+csl: ieee.csl
+link-citations: true
+link-bibliography: true
+
+plot-configuration: pandoc-plot/config.yaml
+...

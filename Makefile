@@ -5,13 +5,13 @@ PDC_FLAGS := --pdf-engine=xelatex -F pandoc-plot -F pandoc-crossref --citeproc
 
 default: report.pdf
 
-COMMON_PREREQS := report.md bibliography.yaml ieee.csl gnuplot/render_pts.gp
+COMMON_PREREQS := report.md metadata.yaml bibliography.yaml ieee.csl gnuplot/render_pts.gp
 
 report.pdf: ${COMMON_PREREQS}
-	${PDC} ${PDC_FLAGS} $< -o $@
+	${PDC} ${PDC_FLAGS} metadata.yaml $< -o $@
 
 report.tex: ${COMMON_PREREQS}
-	${PDC} ${PDC_FLAGS} $< -s -o $@
+	${PDC} ${PDC_FLAGS} metadata.yaml $< -s -o $@
 
 ieee.csl:
 	wget https://www.zotero.org/styles/ieee -O $@

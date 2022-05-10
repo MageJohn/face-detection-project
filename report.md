@@ -1,27 +1,8 @@
 ---
-title: Facial detection and landmarking
+title: Evaulation of facial landmarking methods
 author: "Yuri Pieters"
-date: "8th June 2022"
+date: "25th May 2022"
 subtitle: University of York, Department of Computer Science
-documentclass: scrreprt
-classoption:
-- titlepage
-- parskip=full
-bibliography: bibliography.yaml
-csl: ieee.csl
-link-citations: true
-link-bibliography: true
-indent: true # stops pandoc overriding parskip
-mainfont: "TeX Gyre Heros"
-fontsize: 12pt
-geometry:
-- left=4cm
-- right=4cm
-- top=2.5cm
-- bottom=4cm
-toc: true
-toc-depth: 2
-colorlinks: true
 ...
 
 \listoffigures

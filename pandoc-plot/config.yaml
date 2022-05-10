@@ -1,0 +1,3 @@
+matplotlib:
+  preamble: pandoc-plot/matplotlib.py
+  executable: /home/yuri/Documents/University/Assessments/PROJ/src/venv/bin/python
