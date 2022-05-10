@@ -1,6 +1,6 @@
 ---
 references:
-- id: almadhorComparativeAnalysisFace2018
+- id: almad2018a
   abstract: >-
     Face detection is a crucial task in multistage computer vision systems. This
     paper establishes an effort to summarize the face detection algorithms
@@ -16,7 +16,7 @@ references:
   author:
     - family: Almadhor
       given: Ahmad
-  citation-key: almadhorComparativeAnalysisFace2018
+  citation-key: almad2018a
   container-title: >-
     2018 18th International Conference on Control, Automation and Systems
     (ICCAS)
@@ -32,7 +32,7 @@ references:
   title-short: Comparative Analysis of Face Detection Algorithms
   type: paper-conference
 
-- id: asthanaRobustDiscriminativeResponse2013
+- id: asthaZafeiEtAl2013a
   accessed:
     - year: 2021
       month: 11
@@ -46,7 +46,7 @@ references:
       given: Shiyang
     - family: Pantic
       given: Maja
-  citation-key: asthanaRobustDiscriminativeResponse2013
+  citation-key: asthaZafeiEtAl2013a
   event: >-
     Proceedings of the IEEE Conference on Computer Vision and Pattern
     Recognition
@@ -59,7 +59,7 @@ references:
   URL: >-
     https://openaccess.thecvf.com/content_cvpr_2013/html/Asthana_Robust_Discriminative_Response_2013_CVPR_paper.html
 
-- id: baltrusaitisConstrainedLocalNeural2013
+- id: baltrRobinEtAl2013a
   abstract: >-
     Facial feature detection algorithms have seen great progress over the recent
     years. However, they still struggle in poor lighting conditions and in the
@@ -84,7 +84,7 @@ references:
       given: Peter
     - family: Morency
       given: Louis-Philippe
-  citation-key: baltrusaitisConstrainedLocalNeural2013
+  citation-key: baltrRobinEtAl2013a
   container-title: 2013 IEEE International Conference on Computer Vision Workshops
   DOI: 10.1109/ICCVW.2013.54
   event: 2013 IEEE International Conference on Computer Vision Workshops (ICCVW)
@@ -104,7 +104,59 @@ references:
   type: paper-conference
   URL: http://ieeexplore.ieee.org/document/6755919/
 
-- id: buolamwiniGenderShadesIntersectional2018
+- id: baltrZadehEtAl2018a
+  abstract: >-
+    Over the past few years, there has been an increased interest in automatic
+    facial behavior analysis and understanding. We present OpenFace 2.0 — a tool
+    intended for computer vision and machine learning researchers, affective
+    computing community and people interested in building interactive
+    applications based on facial behavior analysis. OpenFace 2.0 is an extension
+    of OpenFace toolkit (created by Baltrusˇaitis et al. [11]) and is capable of
+    more accurate facial landmark detection, head pose estimation, facial action
+    unit recognition, and eye-gaze estimation. The computer vision algorithms
+    which represent the core of OpenFace 2.0 demonstrate state-of-theart results
+    in all of the above mentioned tasks. Furthermore, our tool is capable of
+    real-time performance and is able to run from a simple webcam without any
+    specialist hardware. Finally, unlike a lot of modern approaches or toolkits,
+    OpenFace 2.0 source code for training models and running them is freely
+    available for research purposes.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 8
+  author:
+    - family: Baltrusaitis
+      given: Tadas
+    - family: Zadeh
+      given: Amir
+    - family: Lim
+      given: Yao Chong
+    - family: Morency
+      given: Louis-Philippe
+  citation-key: baltrZadehEtAl2018a
+  container-title: >-
+    2018 13th IEEE International Conference on Automatic Face & Gesture
+    Recognition (FG 2018)
+  DOI: 10.1109/FG.2018.00019
+  event: >-
+    2018 13th IEEE International Conference on Automatic Face & Gesture
+    Recognition (FG 2018)
+  event-place: Xi'an
+  ISBN: 978-1-5386-2335-0
+  issued:
+    - year: 2018
+      month: 5
+  language: en
+  page: 59-66
+  publisher: IEEE
+  publisher-place: Xi'an
+  source: DOI.org (Crossref)
+  title: 'OpenFace 2.0: Facial Behavior Analysis Toolkit'
+  title-short: OpenFace 2.0
+  type: paper-conference
+  URL: https://ieeexplore.ieee.org/document/8373812/
+
+- id: buolaGebru2018a
   abstract: >-
     Recent studies demonstrate that machine learning algorithms can discriminate
     based on classes like race and gender. In this work, we present an approach
@@ -132,7 +184,7 @@ references:
       given: Joy
     - family: Gebru
       given: Timnit
-  citation-key: buolamwiniGenderShadesIntersectional2018
+  citation-key: buolaGebru2018a
   container-title: >-
     Proceedings of the 1st Conference on Fairness, Accountability and
     Transparency
@@ -153,7 +205,35 @@ references:
   type: paper-conference
   URL: https://proceedings.mlr.press/v81/buolamwini18a.html
 
-- id: cristinacceFeatureDetectionTracking2006
+- id: cooteEdwarEtAl2001a
+  abstract: >-
+    We describe a new method of matching statistical models of appearance to
+    images. A set of model parameters control modes of shape and gray-level
+    variation learned from a training set. We construct an efficient iterative
+    matching algorithm by learning the relationship between perturbations in the
+    model parameters and the induced image errors.
+  author:
+    - family: Cootes
+      given: T.F.
+    - family: Edwards
+      given: G.J.
+    - family: Taylor
+      given: C.J.
+  citation-key: cooteEdwarEtAl2001a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/34.927467
+  ISSN: 1939-3539
+  issue: '6'
+  issued:
+    - year: 2001
+      month: 6
+  page: 681-685
+  source: IEEE Xplore
+  title: Active appearance models
+  type: article-journal
+  volume: '23'
+
+- id: cristCoote2006a
   accessed:
     - year: 2022
       month: 4
@@ -163,7 +243,7 @@ references:
       given: D.
     - family: Cootes
       given: T. F.
-  citation-key: cristinacceFeatureDetectionTracking2006
+  citation-key: cristCoote2006a
   container-title: Procedings of the British Machine Vision Conference 2006
   DOI: 10.5244/C.20.95
   event: British Machine Vision Conference 2006
@@ -180,7 +260,42 @@ references:
   type: paper-conference
   URL: http://www.bmva.org/bmvc/2006/papers/024.html
 
-- id: dengMenpoBenchmarkMultipose2019
+- id: dantoGallEtAl2012a
+  abstract: >-
+    Although facial feature detection from 2D images is a well-studied field,
+    there is a lack of real-time methods that estimate feature points even on
+    low quality images. Here we propose conditional regression forest for this
+    task. While regression forest learn the relations between facial image
+    patches and the location of feature points from the entire set of faces,
+    conditional regression forest learn the relations conditional to global face
+    properties. In our experiments, we use the head pose as a global property
+    and demonstrate that conditional regression forests outperform regression
+    forests for facial feature detection. We have evaluated the method on the
+    challenging Labeled Faces in the Wild [20] database where close-to-human
+    accuracy is achieved while processing images in real-time.
+  author:
+    - family: Dantone
+      given: Matthias
+    - family: Gall
+      given: Juergen
+    - family: Fanelli
+      given: Gabriele
+    - family: Van Gool
+      given: Luc
+  citation-key: dantoGallEtAl2012a
+  container-title: 2012 IEEE Conference on Computer Vision and Pattern Recognition
+  DOI: 10.1109/CVPR.2012.6247976
+  event: 2012 IEEE Conference on Computer Vision and Pattern Recognition
+  ISSN: 1063-6919
+  issued:
+    - year: 2012
+      month: 6
+  page: 2578-2585
+  source: IEEE Xplore
+  title: Real-time facial feature detection using conditional regression forests
+  type: paper-conference
+
+- id: dengRoussEtAl2019a
   abstract: >-
     In this article, we present the Menpo 2D and Menpo 3D benchmarks, two new
     datasets for multi-pose 2D and 3D facial landmark localisation and tracking.
@@ -224,7 +339,7 @@ references:
       given: Jie
     - family: Zafeiriou
       given: Stefanos
-  citation-key: dengMenpoBenchmarkMultipose2019
+  citation-key: dengRoussEtAl2019a
   container-title: International Journal of Computer Vision
   container-title-short: Int J Comput Vis
   DOI: 10.1007/s11263-018-1134-y
@@ -244,7 +359,7 @@ references:
   URL: https://doi.org/10.1007/s11263-018-1134-y
   volume: '127'
 
-- id: everinghamPascalVisualObject2015
+- id: everiEslamEtAl2015a
   abstract: "The Pascal Visual Object Classes (VOC) challenge consists of two components: (i)\_a publicly available dataset of images together with ground truth annotation and standardised evaluation software; and (ii)\_an annual competition and workshop. There are five challenges: classification, detection, segmentation, action classification, and person layout. In this paper we provide a review of the challenge from 2008–2012. The paper is intended for two audiences: algorithm designers, researchers who want to see what the state of the art is, as measured by performance on the VOC datasets, along with the limitations and weak points of the current generation of algorithms; and, challenge designers, who want to see what we as organisers have learnt from the process and our recommendations for the organisation of future challenges. To analyse the performance of submitted algorithms on the VOC datasets we introduce a number of novel evaluation methods: a bootstrapping method for determining whether differences in the performance of two algorithms are significant or not; a normalised average precision so that performance can be compared across classes with different proportions of positive instances; a clustering method for visualising the performance across multiple algorithms so that the hard and easy images can be identified; and the use of a joint classifier over the submitted algorithms in order to measure their complementarity and combined performance. We also analyse the community’s progress through time using the methods of Hoiem et al. (Proceedings of European Conference on Computer Vision, 2012) to identify the types of occurring errors. We conclude the paper with an appraisal of the aspects of the challenge that worked well, and those that could be improved in future challenges."
   accessed:
     - year: 2021
@@ -263,7 +378,7 @@ references:
       given: John
     - family: Zisserman
       given: Andrew
-  citation-key: everinghamPascalVisualObject2015
+  citation-key: everiEslamEtAl2015a
   container-title: International Journal of Computer Vision
   container-title-short: Int J Comput Vis
   DOI: 10.1007/s11263-014-0733-5
@@ -282,14 +397,14 @@ references:
   URL: https://doi.org/10.1007/s11263-014-0733-5
   volume: '111'
 
-- id: forsythComputerVisionModern2012
+- id: forsyPonce2012a
   author:
     - family: Forsyth
       given: David
     - family: Ponce
       given: Jean
   call-number: TA1634 .F65 2012
-  citation-key: forsythComputerVisionModern2012
+  citation-key: forsyPonce2012a
   edition: 2nd ed
   event-place: Boston
   ISBN: 978-0-13-608592-8
@@ -304,7 +419,7 @@ references:
   title-short: Computer Vision
   type: book
 
-- id: francoLearningTrustworthilyData2021
+- id: francOnetoEtAl2021a
   abstract: >-
     In many decision-making scenarios, ranging from recreational activities to
     healthcare and policing, the use of artificial intelligence coupled with the
@@ -339,7 +454,7 @@ references:
       given: Nicolò
     - family: Anguita
       given: Davide
-  citation-key: francoLearningTrustworthilyData2021
+  citation-key: francOnetoEtAl2021a
   container-title: Entropy
   DOI: 10.3390/e23081047
   issue: '8'
@@ -362,7 +477,7 @@ references:
   URL: https://www.mdpi.com/1099-4300/23/8/1047
   volume: '23'
 
-- id: grossMultiPIE2010
+- id: grossMatthEtAl2010a
   abstract: >-
     A close relationship exists between the advancement of face recognition
     algorithms and the availability of face databases varying factors that
@@ -392,7 +507,7 @@ references:
       given: Takeo
     - family: Baker
       given: Simon
-  citation-key: grossMultiPIE2010
+  citation-key: grossMatthEtAl2010a
   container-title: >-
     Proceedings of the ... International Conference on Automatic Face and
     Gesture Recognition. International Conference on Automatic Face and Gesture
@@ -414,7 +529,7 @@ references:
   URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2873597/
   volume: '28'
 
-- id: ioffeMixturesTreesObject2001a
+- id: ioffeForsy2001a
   abstract: >-
     Efﬁcient detection of objects in images is complicated by variations of
     object appearance due to intra-class object differences, articulation,
@@ -444,7 +559,7 @@ references:
       given: S.
     - family: Forsyth
       given: D.
-  citation-key: ioffeMixturesTreesObject2001a
+  citation-key: ioffeForsy2001a
   container-title: >-
     Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision
     and Pattern Recognition. CVPR 2001
@@ -468,7 +583,7 @@ references:
   URL: http://ieeexplore.ieee.org/document/990953/
   volume: '2'
 
-- id: kabakusExperimentalPerformanceComparison2019
+- id: kabak2019a
   abstract: >-
     Face detection is the task of detecting faces on photos, videos as well as
     the streaming data such as a webcam. Face detection, which is a specific
@@ -493,7 +608,7 @@ references:
   author:
     - family: Kabakus
       given: Abdullah Talha
-  citation-key: kabakusExperimentalPerformanceComparison2019
+  citation-key: kabak2019a
   ISSN: 2255-2863
   issued:
     - year: 2019
@@ -507,7 +622,7 @@ references:
   type: article-journal
   URL: https://gredos.usal.es/handle/10366/143310
 
-- id: kanwisherFacePerception2009
+- id: kanwiYovel2009a
   abstract: Abstract
   accessed:
     - year: 2022
@@ -518,7 +633,7 @@ references:
       given: Nancy
     - family: Yovel
       given: Galit
-  citation-key: kanwisherFacePerception2009
+  citation-key: kanwiYovel2009a
   container-title: Handbook of Neuroscience for the Behavioral Sciences
   DOI: 10.1002/9780470478509.neubb002043
   ISBN: 978-0-470-47850-9
@@ -535,7 +650,7 @@ references:
   type: chapter
   URL: https://onlinelibrary.wiley.com/doi/abs/10.1002/9780470478509.neubb002043
 
-- id: karkkainenFairFaceFaceAttribute2019
+- id: karkkJoo2019a
   abstract: >-
     Existing public face datasets are strongly biased toward Caucasian faces,
     and other races (e.g., Latino) are significantly underrepresented. This can
@@ -560,7 +675,7 @@ references:
       given: Kimmo
     - family: Joo
       given: Jungseock
-  citation-key: karkkainenFairFaceFaceAttribute2019
+  citation-key: karkkJoo2019a
   container-title: arXiv:1908.04913 [cs]
   issued:
     - year: 2019
@@ -574,7 +689,7 @@ references:
   URL: http://arxiv.org/abs/1908.04913
   version: '1'
 
-- id: kazemiOneMillisecondFace2014
+- id: kazemSulli2014a
   abstract: >-
     This paper addresses the problem of Face Alignment for a single image. We
     show how an ensemble of regression trees can be used to estimate the face's
@@ -594,7 +709,7 @@ references:
       given: Vahid
     - family: Sullivan
       given: Josephine
-  citation-key: kazemiOneMillisecondFace2014
+  citation-key: kazemSulli2014a
   container-title: 2014 IEEE Conference on Computer Vision and Pattern Recognition
   DOI: 10.1109/CVPR.2014.241
   event: 2014 IEEE Conference on Computer Vision and Pattern Recognition
@@ -607,7 +722,7 @@ references:
   title: One millisecond face alignment with an ensemble of regression trees
   type: paper-conference
 
-- id: khabarlakFastFacialLandmark2021
+- id: khabaKoria2021a
   abstract: >-
     In this paper we survey and analyze modern neural-network-based facial
     landmark detection algorithms. We focus on approaches that have led to a
@@ -630,7 +745,7 @@ references:
       given: Kostiantyn
     - family: Koriashkina
       given: Larysa
-  citation-key: khabarlakFastFacialLandmark2021
+  citation-key: khabaKoria2021a
   container-title: arXiv:2101.10808 [cs]
   issued:
     - year: 2021
@@ -642,7 +757,7 @@ references:
   type: article-journal
   URL: http://arxiv.org/abs/2101.10808
 
-- id: kingDlibmlMachineLearning2009
+- id: king2009a
   abstract: >-
     There are many excellent toolkits which provide support for developing
     machine learning software in Python, R, Matlab, and similar environments.
@@ -659,7 +774,7 @@ references:
   author:
     - family: King
       given: Davis E.
-  citation-key: kingDlibmlMachineLearning2009
+  citation-key: king2009a
   container-title: The Journal of Machine Learning Research
   container-title-short: J. Mach. Learn. Res.
   ISSN: 1532-4435
@@ -674,7 +789,7 @@ references:
   type: article-journal
   volume: '10'
 
-- id: kostingerAnnotatedFacialLandmarks2011
+- id: kostiWohlhEtAl2011a
   abstract: >-
     Face alignment is a crucial step in face recognition tasks. Especially,
     using landmark localization for geometric face normalization has shown to be
@@ -702,7 +817,7 @@ references:
       given: Peter M.
     - family: Bischof
       given: Horst
-  citation-key: kostingerAnnotatedFacialLandmarks2011
+  citation-key: kostiWohlhEtAl2011a
   container-title: >-
     2011 IEEE International Conference on Computer Vision Workshops (ICCV
     Workshops)
@@ -721,7 +836,7 @@ references:
   title-short: Annotated Facial Landmarks in the Wild
   type: paper-conference
 
-- id: leInteractiveFacialFeature2012
+- id: leBrandEtAl2012a
   abstract: >-
     We address the problem of interactive facial feature localization from a
     single image. Our goal is to obtain an accurate segmentation of facial
@@ -752,7 +867,7 @@ references:
       given: Lubomir
     - family: Huang
       given: Thomas S.
-  citation-key: leInteractiveFacialFeature2012
+  citation-key: leBrandEtAl2012a
   collection-title: Lecture Notes in Computer Science
   container-title: Computer Vision – ECCV 2012
   DOI: 10.1007/978-3-642-33712-3_49
@@ -779,7 +894,7 @@ references:
   title: Interactive Facial Feature Localization
   type: paper-conference
 
-- id: luoUnderstandingEffectiveReceptive2016
+- id: luoLiEtAl2016a
   abstract: >-
     We study characteristics of receptive fields of units in deep convolutional
     networks. The receptive field size is a crucial issue in many visual tasks,
@@ -803,7 +918,7 @@ references:
       given: Raquel
     - family: Zemel
       given: Richard
-  citation-key: luoUnderstandingEffectiveReceptive2016
+  citation-key: luoLiEtAl2016a
   collection-title: NIPS'16
   container-title: >-
     Proceedings of the 30th International Conference on Neural Information
@@ -823,7 +938,7 @@ references:
     networks
   type: paper-conference
 
-- id: martinezAdvancesChallengesOpportunities2016
+- id: martiValst2016a
   abstract: >-
     In this chapter we consider the problem of automatic facial expression
     analysis. Our take on this is that the field has reached a point where it
@@ -857,7 +972,7 @@ references:
       given: Brais
     - family: Valstar
       given: Michel F.
-  citation-key: martinezAdvancesChallengesOpportunities2016
+  citation-key: martiValst2016a
   container-title: Advances in Face Detection and Facial Image Analysis
   DOI: 10.1007/978-3-319-25958-1_4
   editor:
@@ -882,7 +997,7 @@ references:
   type: chapter
   URL: https://doi.org/10.1007/978-3-319-25958-1_4
 
-- id: mergetRobustFacialLandmark2018
+- id: mergeRockEtAl2018a
   accessed:
     - year: 2022
       month: 2
@@ -894,7 +1009,7 @@ references:
       given: Matthias
     - family: Rigoll
       given: Gerhard
-  citation-key: mergetRobustFacialLandmark2018
+  citation-key: mergeRockEtAl2018a
   event: >-
     Proceedings of the IEEE Conference on Computer Vision and Pattern
     Recognition
@@ -909,7 +1024,7 @@ references:
   URL: >-
     https://openaccess.thecvf.com/content_cvpr_2018/html/Merget_Robust_Facial_Landmark_CVPR_2018_paper.html
 
-- id: merlerDiversityFaces2019
+- id: merleRathaEtAl2019a
   abstract: >-
     Face recognition is a long standing challenge in the field of Artificial
     Intelligence (AI). The goal is to create systems that accurately detect,
@@ -951,7 +1066,7 @@ references:
       given: Rogerio S.
     - family: Smith
       given: John R.
-  citation-key: merlerDiversityFaces2019
+  citation-key: merleRathaEtAl2019a
   container-title: arXiv:1901.10436 [cs]
   issued:
     - year: 2019
@@ -962,7 +1077,41 @@ references:
   type: article-journal
   URL: http://arxiv.org/abs/1901.10436
 
-- id: nadaPushingLimitsUnconstrained2018
+- id: murphTrive2009a
+  abstract: >-
+    The capacity to estimate the head pose of another person is a common human
+    ability that presents a unique challenge for computer vision systems.
+    Compared to face detection and recognition, which have been the primary foci
+    of face-related vision research, identity-invariant head pose estimation has
+    fewer rigorously evaluated systems or generic solutions. In this paper, we
+    discuss the inherent difficulties in head pose estimation and present an
+    organized survey describing the evolution of the field. Our discussion
+    focuses on the advantages and disadvantages of each approach and spans 90 of
+    the most innovative and characteristic papers that have been published on
+    this topic. We compare these systems by focusing on their ability to
+    estimate coarse and fine head pose, highlighting approaches that are well
+    suited for unconstrained environments.
+  author:
+    - family: Murphy-Chutorian
+      given: Erik
+    - family: Trivedi
+      given: Mohan Manubhai
+  citation-key: murphTrive2009a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/TPAMI.2008.106
+  ISSN: 1939-3539
+  issue: '4'
+  issued:
+    - year: 2009
+      month: 4
+  page: 607-626
+  source: IEEE Xplore
+  title: 'Head Pose Estimation in Computer Vision: A Survey'
+  title-short: Head Pose Estimation in Computer Vision
+  type: article-journal
+  volume: '31'
+
+- id: nadaSindaEtAl2018a
   abstract: >-
     Face detection has witnessed immense progress in the last few years, with
     new milestones being surpassed every year. While many challenges such as
@@ -989,7 +1138,7 @@ references:
       given: He
     - family: Patel
       given: Vishal M.
-  citation-key: nadaPushingLimitsUnconstrained2018
+  citation-key: nadaSindaEtAl2018a
   container-title: >-
     2018 IEEE 9th International Conference on Biometrics Theory, Applications
     and Systems (BTAS)
@@ -1009,11 +1158,11 @@ references:
   title-short: Pushing the Limits of Unconstrained Face Detection
   type: paper-conference
 
-- id: princeComputerVisionModels2012
+- id: princ2012a
   author:
     - family: Prince
       given: Simon J. D.
-  citation-key: princeComputerVisionModels2012
+  citation-key: princ2012a
   edition: 1st edition
   event-place: New York
   ISBN: 978-1-107-01179-3
@@ -1030,7 +1179,7 @@ references:
   title-short: Computer Vision
   type: book
 
-- id: rowleyNeuralNetworkbasedFace1998
+- id: rowleBalujEtAl1998a
   abstract: >-
     We present a neural network-based upright frontal face detection system. A
     retinally connected neural network examines small windows of an image and
@@ -1052,7 +1201,7 @@ references:
       given: S.
     - family: Kanade
       given: T.
-  citation-key: rowleyNeuralNetworkbasedFace1998
+  citation-key: rowleBalujEtAl1998a
   container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
   DOI: 10.1109/34.655647
   ISSN: 1939-3539
@@ -1066,47 +1215,7 @@ references:
   type: article-journal
   volume: '20'
 
-- id: sagonas300FacesIntheWild2013
-  abstract: >-
-    Automatic facial point detection plays arguably the most important role in
-    face analysis. Several methods have been proposed which reported their
-    results on databases of both constrained and unconstrained conditions. Most
-    of these databases provide annotations with different mark-ups and in some
-    cases the are problems related to the accuracy of the fiducial points. The
-    aforementioned issues as well as the lack of a evaluation protocol makes it
-    difficult to compare performance between different systems. In this paper,
-    we present the 300 Faces in-the-Wild Challenge: The first facial landmark
-    localization Challenge which is held in conjunction with the International
-    Conference on Computer Vision 2013, Sydney, Australia. The main goal of this
-    challenge is to compare the performance of different methods on a
-    new-collected dataset using the same evaluation protocol and the same
-    mark-up and hence to develop the first standardized benchmark for facial
-    landmark localization.
-  author:
-    - family: Sagonas
-      given: Christos
-    - family: Tzimiropoulos
-      given: Georgios
-    - family: Zafeiriou
-      given: Stefanos
-    - family: Pantic
-      given: Maja
-  citation-key: sagonas300FacesIntheWild2013
-  container-title: 2013 IEEE International Conference on Computer Vision Workshops
-  DOI: 10.1109/ICCVW.2013.59
-  event: 2013 IEEE International Conference on Computer Vision Workshops
-  issued:
-    - year: 2013
-      month: 12
-  page: 397-403
-  source: IEEE Xplore
-  title: >-
-    300 Faces in-the-Wild Challenge: The First Facial Landmark Localization
-    Challenge
-  title-short: 300 Faces in-the-Wild Challenge
-  type: paper-conference
-
-- id: sagonas300FacesInTheWild2016
+- id: sagonAntonEtAl2016a
   abstract: >-
     Computer Vision has recently witnessed great research advance towards
     automatic facial points detection. Numerous methodologies have been proposed
@@ -1143,7 +1252,7 @@ references:
       given: Stefanos
     - family: Pantic
       given: Maja
-  citation-key: sagonas300FacesInTheWild2016
+  citation-key: sagonAntonEtAl2016a
   collection-title: 300-W, the First Automatic Facial Landmark Detection in-the-Wild Challenge
   container-title: Image and Vision Computing
   container-title-short: Image and Vision Computing
@@ -1162,7 +1271,7 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S0262885616000147
   volume: '47'
 
-- id: sagonasSemiautomaticMethodologyFacial2013
+- id: sagonTzimiEtAl2013a
   abstract: >-
     Developing powerful deformable face models requires massive, annotated face
     databases on which techniques can be trained, validated and tested. Manual
@@ -1189,7 +1298,7 @@ references:
       given: Stefanos
     - family: Pantic
       given: Maja
-  citation-key: sagonasSemiautomaticMethodologyFacial2013
+  citation-key: sagonTzimiEtAl2013a
   container-title: 2013 IEEE Conference on Computer Vision and Pattern Recognition Workshops
   DOI: 10.1109/CVPRW.2013.132
   event: 2013 IEEE Conference on Computer Vision and Pattern Recognition Workshops
@@ -1202,7 +1311,47 @@ references:
   title: A Semi-automatic Methodology for Facial Landmark Annotation
   type: paper-conference
 
-- id: saragihDeformableModelFitting2011
+- id: sagonTzimiEtAl2013b
+  abstract: >-
+    Automatic facial point detection plays arguably the most important role in
+    face analysis. Several methods have been proposed which reported their
+    results on databases of both constrained and unconstrained conditions. Most
+    of these databases provide annotations with different mark-ups and in some
+    cases the are problems related to the accuracy of the fiducial points. The
+    aforementioned issues as well as the lack of a evaluation protocol makes it
+    difficult to compare performance between different systems. In this paper,
+    we present the 300 Faces in-the-Wild Challenge: The first facial landmark
+    localization Challenge which is held in conjunction with the International
+    Conference on Computer Vision 2013, Sydney, Australia. The main goal of this
+    challenge is to compare the performance of different methods on a
+    new-collected dataset using the same evaluation protocol and the same
+    mark-up and hence to develop the first standardized benchmark for facial
+    landmark localization.
+  author:
+    - family: Sagonas
+      given: Christos
+    - family: Tzimiropoulos
+      given: Georgios
+    - family: Zafeiriou
+      given: Stefanos
+    - family: Pantic
+      given: Maja
+  citation-key: sagonTzimiEtAl2013b
+  container-title: 2013 IEEE International Conference on Computer Vision Workshops
+  DOI: 10.1109/ICCVW.2013.59
+  event: 2013 IEEE International Conference on Computer Vision Workshops
+  issued:
+    - year: 2013
+      month: 12
+  page: 397-403
+  source: IEEE Xplore
+  title: >-
+    300 Faces in-the-Wild Challenge: The First Facial Landmark Localization
+    Challenge
+  title-short: 300 Faces in-the-Wild Challenge
+  type: paper-conference
+
+- id: saragLuceyEtAl2011a
   abstract: >-
     Deformable model fitting has been actively pursued in the computer vision
     community for over a decade. As a result, numerous approaches have been
@@ -1231,7 +1380,7 @@ references:
       given: Simon
     - family: Cohn
       given: Jeffrey F.
-  citation-key: saragihDeformableModelFitting2011
+  citation-key: saragLuceyEtAl2011a
   container-title: International Journal of Computer Vision
   container-title-short: Int J Comput Vis
   DOI: 10.1007/s11263-010-0380-4
@@ -1249,7 +1398,47 @@ references:
   URL: https://doi.org/10.1007/s11263-010-0380-4
   volume: '91'
 
-- id: violaRapidObjectDetection2001a
+- id: taigmYangEtAl2014a
+  abstract: >-
+    In modern face recognition, the conventional pipeline consists of four
+    stages: detect => align => represent => classify. We revisit both the
+    alignment step and the representation step by employing explicit 3D face
+    modeling in order to apply a piecewise affine transformation, and derive a
+    face representation from a nine-layer deep neural network. This deep network
+    involves more than 120 million parameters using several locally connected
+    layers without weight sharing, rather than the standard convolutional
+    layers. Thus we trained it on the largest facial dataset to-date, an
+    identity labeled dataset of four million facial images belonging to more
+    than 4, 000 identities. The learned representations coupling the accurate
+    model-based alignment with the large facial database generalize remarkably
+    well to faces in unconstrained environments, even with a simple classifier.
+    Our method reaches an accuracy of 97.35% on the Labeled Faces in the Wild
+    (LFW) dataset, reducing the error of the current state of the art by more
+    than 27%, closely approaching human-level performance.
+  author:
+    - family: Taigman
+      given: Yaniv
+    - family: Yang
+      given: Ming
+    - family: Ranzato
+      given: Marc'Aurelio
+    - family: Wolf
+      given: Lior
+  citation-key: taigmYangEtAl2014a
+  container-title: 2014 IEEE Conference on Computer Vision and Pattern Recognition
+  DOI: 10.1109/CVPR.2014.220
+  event: 2014 IEEE Conference on Computer Vision and Pattern Recognition
+  ISSN: 1063-6919
+  issued:
+    - year: 2014
+      month: 6
+  page: 1701-1708
+  source: IEEE Xplore
+  title: 'DeepFace: Closing the Gap to Human-Level Performance in Face Verification'
+  title-short: DeepFace
+  type: paper-conference
+
+- id: violaJones2001a
   abstract: >-
     This paper describes a machine learning approach for visual object detection
     which is capable of processing images extremely rapidly and achieving high
@@ -1277,7 +1466,7 @@ references:
       given: P.
     - family: Jones
       given: M.
-  citation-key: violaRapidObjectDetection2001a
+  citation-key: violaJones2001a
   container-title: >-
     Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision
     and Pattern Recognition. CVPR 2001
@@ -1301,7 +1490,7 @@ references:
   URL: http://ieeexplore.ieee.org/document/990517/
   volume: '1'
 
-- id: wuFacialLandmarkDetection2019
+- id: wuJi2019a
   abstract: >-
     The locations of the fiducial facial landmark points around facial
     components and facial contour capture the rigid and non-rigid facial
@@ -1335,7 +1524,7 @@ references:
       given: Yue
     - family: Ji
       given: Qiang
-  citation-key: wuFacialLandmarkDetection2019
+  citation-key: wuJi2019a
   container-title: International Journal of Computer Vision
   container-title-short: Int J Comput Vis
   DOI: 10.1007/s11263-018-1097-z
@@ -1354,7 +1543,44 @@ references:
   URL: https://doi.org/10.1007/s11263-018-1097-z
   volume: '127'
 
-- id: yanLearnCombineMultiple2013
+- id: xiongDeLala2013a
+  abstract: >-
+    Many computer vision problems (e.g., camera calibration, image alignment,
+    structure from motion) are solved through a nonlinear optimization method.
+    It is generally accepted that 2nd order descent methods are the most robust,
+    fast and reliable approaches for nonlinear optimization of a general smooth
+    function. However, in the context of computer vision, 2nd order descent
+    methods have two main drawbacks: (1) The function might not be analytically
+    differentiable and numerical approximations are impractical. (2) The Hessian
+    might be large and not positive definite. To address these issues, this
+    paper proposes a Supervised Descent Method (SDM) for minimizing a Non-linear
+    Least Squares (NLS) function. During training, the SDM learns a sequence of
+    descent directions that minimizes the mean of NLS functions sampled at
+    different points. In testing, SDM minimizes the NLS objective using the
+    learned descent directions without computing the Jacobian nor the Hessian.
+    We illustrate the benefits of our approach in synthetic and real examples,
+    and show how SDM achieves state-of-the-art performance in the problem of
+    facial feature detection. The code is available at www.humansensing.cs.
+    cmu.edu/intraface.
+  author:
+    - family: Xiong
+      given: Xuehan
+    - family: De la Torre
+      given: Fernando
+  citation-key: xiongDeLala2013a
+  container-title: 2013 IEEE Conference on Computer Vision and Pattern Recognition
+  DOI: 10.1109/CVPR.2013.75
+  event: 2013 IEEE Conference on Computer Vision and Pattern Recognition
+  ISSN: 1063-6919
+  issued:
+    - year: 2013
+      month: 6
+  page: 532-539
+  source: IEEE Xplore
+  title: Supervised Descent Method and Its Applications to Face Alignment
+  type: paper-conference
+
+- id: yanLeiEtAl2013a
   abstract: >-
     In this paper, we present the details of our method in attending the 300
     Faces in-the-wild (300W) challenge. We build our method on cascade
@@ -1385,7 +1611,7 @@ references:
       given: Dong
     - family: Li
       given: Stan Z.
-  citation-key: yanLearnCombineMultiple2013
+  citation-key: yanLeiEtAl2013a
   container-title: 2013 IEEE International Conference on Computer Vision Workshops
   DOI: 10.1109/ICCVW.2013.126
   event: 2013 IEEE International Conference on Computer Vision Workshops (ICCVW)
@@ -1403,7 +1629,55 @@ references:
   type: paper-conference
   URL: http://ieeexplore.ieee.org/document/6755924/
 
-- id: zafeiriouSurveyFaceDetection2015
+- id: zadehBaltrEtAl2017a
+  abstract: >-
+    Constrained Local Models (CLMs) are a well-established family of methods for
+    facial landmark detection. However, they have recently fallen out of favor
+    to cascaded regressionbased approaches. This is in part due to the inability
+    of existing CLM local detectors to model the very complex individual
+    landmark appearance that is affected by expression, illumination, facial
+    hair, makeup, and accessories. In our work, we present a novel local
+    detector – Convolutional Experts Network (CEN) – that brings together the
+    advantages of neural architectures and mixtures of experts in an end-toend
+    framework. We further propose a Convolutional Experts Constrained Local
+    Model (CE-CLM) algorithm that uses CEN as a local detector. We demonstrate
+    that our proposed CE-CLM algorithm outperforms competitive state-of-the-art
+    baselines for facial landmark detection by a large margin, especially on
+    challenging proﬁle images.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 8
+  author:
+    - family: Zadeh
+      given: Amir
+    - family: Baltrusaitis
+      given: Tadas
+    - family: Morency
+      given: Louis-Philippe
+  citation-key: zadehBaltrEtAl2017a
+  container-title: >-
+    2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops
+    (CVPRW)
+  DOI: 10.1109/CVPRW.2017.256
+  event: >-
+    2017 IEEE Conference on Computer Vision and Pattern Recognition Workshops
+    (CVPRW)
+  event-place: Honolulu, HI, USA
+  ISBN: 978-1-5386-0733-6
+  issued:
+    - year: 2017
+      month: 7
+  language: en
+  page: 2051-2059
+  publisher: IEEE
+  publisher-place: Honolulu, HI, USA
+  source: DOI.org (Crossref)
+  title: Convolutional Experts Constrained Local Model for Facial Landmark Detection
+  type: paper-conference
+  URL: http://ieeexplore.ieee.org/document/8014990/
+
+- id: zafeiZhangEtAl2015a
   abstract: >-
     Face detection is one of the most studied topics in computer vision
     literature, not only because of the challenging nature of face as an object,
@@ -1434,7 +1708,7 @@ references:
       given: Cha
     - family: Zhang
       given: Zhengyou
-  citation-key: zafeiriouSurveyFaceDetection2015
+  citation-key: zafeiZhangEtAl2015a
   container-title: Computer Vision and Image Understanding
   container-title-short: Computer Vision and Image Understanding
   DOI: 10.1016/j.cviu.2015.03.015
@@ -1452,7 +1726,7 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S1077314215000727
   volume: '138'
 
-- id: zhouExtensiveFacialLandmark2013
+- id: zhouFanEtAl2013a
   abstract: >-
     We present a new approach to localize extensive facial landmarks with a
     coarse-to-ﬁne convolutional network cascade. Deep convolutional neural
@@ -1487,7 +1761,7 @@ references:
       given: Yuning
     - family: Yin
       given: Qi
-  citation-key: zhouExtensiveFacialLandmark2013
+  citation-key: zhouFanEtAl2013a
   container-title: 2013 IEEE International Conference on Computer Vision Workshops
   DOI: 10.1109/ICCVW.2013.58
   event: 2013 IEEE International Conference on Computer Vision Workshops (ICCVW)
@@ -1507,7 +1781,7 @@ references:
   type: paper-conference
   URL: http://ieeexplore.ieee.org/document/6755923/
 
-- id: zhuFaceDetectionPose2012
+- id: zhuRaman2012a
   abstract: >-
     We present a unified model for face detection, pose estimation, and landmark
     estimation in real-world, cluttered images. Our model is based on a mixtures
@@ -1526,7 +1800,7 @@ references:
       given: Xiangxin
     - family: Ramanan
       given: Deva
-  citation-key: zhuFaceDetectionPose2012
+  citation-key: zhuRaman2012a
   container-title: 2012 IEEE Conference on Computer Vision and Pattern Recognition
   DOI: 10.1109/CVPR.2012.6248014
   event: 2012 IEEE Conference on Computer Vision and Pattern Recognition
@@ -1539,7 +1813,7 @@ references:
   title: Face detection, pose estimation, and landmark localization in the wild
   type: paper-conference
 
-- id: zouObjectDetection202019
+- id: zouShiEtAl2019a
   abstract: >-
     Object detection, as of one the most fundamental and challenging problems in
     computer vision, has received great attention in recent years. Its
@@ -1569,7 +1843,7 @@ references:
       given: Yuhong
     - family: Ye
       given: Jieping
-  citation-key: zouObjectDetection202019
+  citation-key: zouShiEtAl2019a
   container-title: arXiv:1905.05055 [cs]
   issued:
     - year: 2019

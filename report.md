@@ -7,15 +7,13 @@ subtitle: University of York, Department of Computer Science
 
 \listoffigures
 
-# Executive Summary
+# Executive Summary {.unnumbered}
 
-- State aim
-- Motivation: why is worth doing this?
-- Methods: how was it done?
-- Results: what was found
-- Issues: what should people be mindful of with regards to this subject?
-
-The goal of this work was to understand, compare, and evaluate a range of different techniques used in the detection and landmarking of human faces by computers. In this report I present the models I chose to evaluate, the datasets I evaluated them against, and the results of the evaluation. I also present a review of the field overall, which motivates the particular models and datasets I choose.
+Aim: The goal of this work was to understand, compare, and evaluate a range of
+different techniques used for landmark localisation on faces. In this report I
+present the models I chose to evaluate, the datasets I evaluated them against,
+and the results of the evaluation. I also present a review of the field overall,
+which motivates the particular models and datasets I choose.
 
 Motivation:
 
@@ -23,6 +21,11 @@ Motivation:
 - Computer vision techniques aren't one size fits all. To pick between them requires understanding of the differences.
 - Recognition of faces is an important and frequently used application of computer vision.
 - Therefore understanding and picking between face recognition algorithms is important.
+
+Methods: I evaluated the algorithms by running them on the same set of data, and
+calculating how closely they reproduced the true landmark points.
+
+Results: I found that ....
 
 Social and ethical issues of face detection and landmarking:
 
@@ -33,146 +36,126 @@ Social and ethical issues of face detection and landmarking:
 
 # Introduction
 
-## Notes
+Automatic analysis of human faces is a complex problem. Humans have an intuitive
+understanding of the human face from a very young age, and we quickly learn to
+interpret the faces of others to tell us who they are, where they are looking,
+what they are feeling, and more; the face is a rich form of non-verbal
+communication [@kanwiYovel2009a]. The ease with which we do this belies the
+difficulty we have had in teaching computers to do the same, however. Trying to
+infer something as subtle as emotion from a collection of pixels, full of noise
+arising from lighting conditions, camera properties, accessories such as hats
+and glasses, or simply the diversity of human faces, is a non-trivial task. The
+solution, of course, is to pre-process the data somehow to extract only relevant
+features [@martiValst2016a]. This breaks a difficult problem (such analysing
+facial expressions), into more manageable sub-problems, which can be tackled
+separately. One such pre-processing technique that turns out to be useful for
+multiple different tasks is facial landmarking [@martiValst2016a;
+@murphTrive2009a].
 
-- Subject area intro/background
-- Narrow to specific background for this work
-- Restate motivation
-- Restate aims
+Facial landmarking can be used to as part of the process of solving more
+difficult facial analysis problems in different ways. Most obviously, landmarks
+can be used directly as input data for a model. A model for head pose estimation
+for example may not actually need most of the information encoded in the image
+pixels; the pose of the head can be inferred from the relative positions of the
+various facial features, which is what the landmarks encode [@murphTrive2009a].
+Alternatively, the landmarks can be used as part of additional pre-processing
+steps such as registration and feature extraction [@martiValst2016a]. In
+registration the idea is to remove variation in rotation and scale; this can be
+done by first computing a transformation that places the landmarks onto a
+predefined reference shape, and then applying the same transformation to the
+image itself. In feature extraction the goal is to compute summaries of the
+image data that keeps relevant information while getting rid of nuisance
+factors. Landmarks can help localise the features, so that each feature
+represents the same part of the face in every example. Features can also be
+computed directly on the landmarks themselves, encoding geometric relationships
+between different parts of the face.
 
-<!-- -->
+In the following, I present an overview of facial landmarking methods, followed
+by a more detailed explanation of a few specific algorithms. Those algorithms
+are then evaluated against a common dataset, before concluding with with some
+recommendations on the suitability of the tested algorithms in certain
+circumstances.
 
-- Object detection and landmarking are general problems. Faces are a popular subject though.
-- Overall aim of face detection/landmarking algorithms
-- Difference between statistical models and neural networks
-- Stages of a typical algorithm
-- Stages in detail (I think it's detection then landmarking)
-  - Detection
-    - Overview of model categories
-    - What is state of the art like?
-  - Landmarking
-    - Overview of model categories
-    - What is state of the art like?
+## Landmarking configurations
 
-- What particular problems often occur with face detection/landmarking?
-  - Occlusion
-  - Extreme poses
-  - More varied faces than the detector was trained on
+Before going deeper into methods of computing landmarks, I shall talk briefly
+about landmark configurations. Different landmarking schemes exist, with varying
+numbers of landmarks and with the landmarks localised to different parts of the
+face [@sagonAntonEtAl2016a]. The different configurations have arisen from the
+different decisions made by people collecting and annotating datasets, and
+appear to be mostly arbitrary. One of the most widely used is the 68 point
+configuration from the Multi-PIE dataset (which is the one shown in
+[@fig:landmarkExample]). Thanks to the work done for the 300 Faces In-The-Wild
+challenge [@sagonAntonEtAl2016a], there are now annotations using the 68 point
+configuration available for several public datasets.
 
-Aims:
+## Overview of landmarking methods
 
-- Investigate a variety of techniques used in face detection and landmarking
-- Evaluate a cross-section of these techniques using a unified data set
-
-Face analysis categories:
-
-- Face detection: answer's the question "is there a face in this image". Can
-  typically be extended to answer "where are the faces in this image" by running
-  the detector on all sub-regions of the image.
-- Facial landmarking: going beyond detecting the presence of a face, landmarking
-  identifies the position of the individual face parts. Different techniques use
-  different numbers of landmarks. Some aim to fit a contour around every part,
-  and some may just place points on the eyes, nose and mouth. The landmarks can
-  be used as a precursor to other face processing tasks such as recognising
-  emotions or identifying individuals.
-
-## Introduction
-
-The problems of face detection and landmarking are related but typically
-distinct problems in the field of computer vision. The goal of face detection is
-to detect the presence of faces in an image, often with the further goal of
-placing a bounding box around the face; this is a good start for other face
-analysis algorithms which assume the presence of a face, and is used in
-applications such as cameras to help auto-focus. The goal of landmarking a face
-is to place a set of points onto key parts of the face, as in
-[@fig:landmarkExample]; the landmarks could then be used in further processing,
-such as identity recognition, facial behaviour analysis, lip reading, 3D face
-reconstruction, or face editing, to name a few examples
-[@dengMenpoBenchmarkMultipose2019].
+The goal of facial landmarking is to fit a set of points to an image of a face
+such that they mark the locations of key facial parts [@wuJi2019a].
+[@Fig:landmarkExample] shows an example of a face fitted with a set of such
+landmarks. Landmarks points may either mark a well defined facial part, such as
+the tip of the nose or the corner of the eye, or they may be part of a group
+marking a boundary, such as the edge of the face.
 
 ```{
     #fig:landmarkExample
     .gnuplot
     format=PNG
     dependencies="[gnuplot/render_pts.gp, gnuplot/process_pts.awk]"
-    caption="Example of a face from the 300W face database [@sagonas300FacesInTheWild2016] with a set of 68 landmark points annotated. The 68 point pattern was first used for the Multi-PIE [@grossMultiPIE2010] database, but has since been used on many other databases [@sagonas300FacesInTheWild2016]."
+    caption="Example of a face from the 300W face dataset [@sagonAntonEtAl2016a]
+    with a set of 68 landmark points annotated. The 68 point scheme was first
+    used for the Multi-PIE [@grossMatthEtAl2010a] dataset, and is now one of the
+    more widely used schemes."
+    width=60%
     }
 call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
 ```
 
-<!-- Rethink this paragraph. The assertion that combining detection and
-landmarking is recent may be unfounded -->
+There are several approaches to achieving this goal, but they can largely be
+divided into three categories [@wuJi2019a]: generative holistic methods,
+Constrained Local Models, and regression based methods. In the holistic methods,
+a model of the global appearance of the face is related to a global model of the
+landmark positions; the classic version of this method is called Active
+Appearance Models (AAM) from Cootes et al. [@cooteEdwarEtAl2001a]. Constrained
+Local Model (CLM) approaches train a set of independent models for each of the
+facial landmarks, but constrain the locations of the landmarks based on a global
+model of the face shape; CLM models can be traced back work by
+Cristinacce and Cootes [@cristCoote2006a]. Lastly, the regression based methods
+do not explicitly model the global face shape at all, instead directly relating
+image data to landmark locations.
 
-Historically the problems of face detection and landmarking were tackled
-separately; however more recent work, such as that done by Zhu and Ramanan
-[@zhuFaceDetectionPose2012], has resulted in algorithms unifying both goals. In
-addition, the performance of some algorithms for landmarking is strongly
-affected by where they are initialised, and this initialisation is done with a
-face detector. To get the best performance in this case, the detection algorithm
-should be tailored to the one for landmarking [@sagonas300FacesInTheWild2016].
+### Holistic methods
 
-In this project different off-the-shelf algorithms for facial detection and
-landmarking are compared, examining their performance at different image
-resolutions. 
+**Describe active appearance models and their variations**
 
-The 300 Faces In-The-Wild challenge [@sagonas300FacesInTheWild2016] and similar
-competitions
-([@dengMenpoBenchmarkMultipose2019;@everinghamPascalVisualObject2015;@nadaPushingLimitsUnconstrained2018])
-have compared a variety of 
+### Constrained Local Models
 
-While they are special cases of the more general problems in object recognition,
-faces are frequently the case chosen in the literature, even when the algorithm
-in question is more generally applicable (e.g
-[@asthanaRobustDiscriminativeResponse2013; @saragihDeformableModelFitting2011;
-@ioffeMixturesTreesObject2001a]). This may just be because it is easier to
-compare new work to old when using the same class of objects, but faces are also
-a generally good class to use for this comparison: they are non-rigid and diverse,
-making them a relatively difficult problem, and it is easy for a human to
-qualitatively judge the result.
+The central idea of CLM is to model, for each landmark, the likelihood that it
+should be placed on a certain part of the image, but to then constrain the final
+landmark locations to so to fit a model of the face shape as a whole. **more
+detail, and variations**
 
+### Regression based methods
 
-<!-- First attempt -->
+**More varied. Give overview, but choose one (which you have an implementation
+for), and describe it in more detail**
 
-Faces hold a special place in the human mind. As highly visual, social creatures
-our faces are an important part of how we navigate the world. With our faces we
-can communicate complex emotion, and they are one of the primary ways we
-recognise one another. Therefore the ability to recognise faces is hard-wired
-into our brains, so much so that we'll happily see them in everything from burnt
-toast to clouds. Its no wonder then that faces are a popular subject for
-computer vision research. However, writing a computer program to analyse human
-faces (or images of objects in general, actually) turns out to be easier said
-than done, and so has been the subject of much research over the last few
-decades. This research has produced many practical techniques already in use
-around us, such as face detectors helping to auto-focus your camera, or
-auto-tagging of identities in photo libraries. There is still much room for
-improvement, as most of these programs are still easily outperformed by humans.
-Research continues, however, and the state of the art continues to get closer to
-human level every year.
-
-The goal of facial recognition is a broad one, and can be broken down further.
-Some tasks that can be included in facial recognition are
-
-Face detection
-
-  ~ Detect the presence of a face in in image. The result may be a bounding box
-  around the face, and is a good starting point for further analysis which
-  assumes the presence of a face.
-
-Classification
-
-  ~ Classify faces into categories such as gender, age, skin color, etc.
-
-
-
-:::{#fig:faceexamples}
-![](./Datasets/300W/01_Indoor/indoor_168.png){ width=45% }
-\hspace{1em}
-![](./Datasets/300W/01_Indoor/indoor_225.png){ width=45% }
-
-Two images from the 300w dataset, showing some of the range of human faces.
-:::
 
 # Methods
+
+Approach: 
+
+Use RMSE to compare algorithms. Segment based on pose.
+
+Pose segmentation done using semi-automated approach. 
+
+#. First ran a head-pose estimation tool (OpenFace)
+#. Then classified the results into frontal and extreme poses
+   - assume failures are an extreme pose
+#. Go through the results manually and reclassify any errors.
+
+Algorithm choices; justify based on literature review and availability.
 
 - Approach
 - What was done
@@ -188,7 +171,7 @@ Two images from the 300w dataset, showing some of the range of human faces.
 - Final wrap up what happened
 - Project aims
 
-# Bibliography
+# Bibliography {.unnumbered}
 
 :::{#refs}
 :::
