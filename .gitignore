@@ -1,8 +1,11 @@
-plots/
 Implementations/*
+Datasets/
+
 src/venv/
 src/.*/
 __pycache__/
-Datasets/
+*.egg-info
+
+plots/
 report.tex
 ieee.csl
