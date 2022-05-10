@@ -1,3 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "experiments"
+version = "0.0.1"
+dependencies = [
+  "dlib",
+  "funcy",
+  "matplotlib",
+  "numpy",
+  "nptyping",
+  "Pillow",
+  "types-Pillow",
+]
+
 [tool.pyright]
 include = ["experiments"]
 typeCheckingMode = "strict"
