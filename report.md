@@ -17,10 +17,14 @@ which motivates the particular models and datasets I choose.
 
 Motivation:
 
-- Computer vision is an important part of many topics at the bleeding edge of computer science: robotics, self driving cars, human computer interfaces.
-- Computer vision techniques aren't one size fits all. To pick between them requires understanding of the differences.
-- Recognition of faces is an important and frequently used application of computer vision.
-- Therefore understanding and picking between face recognition algorithms is important.
+- Computer vision is an important part of many topics at the bleeding edge of
+  computer science: robotics, self driving cars, human computer interfaces.
+- Computer vision techniques aren't one size fits all. To pick between them
+  requires understanding of the differences.
+- Recognition of faces is an important and frequently used application of
+  computer vision.
+- Therefore understanding and picking between face recognition algorithms is
+  important.
 
 Methods: I evaluated the algorithms by running them on the same set of data, and
 calculating how closely they reproduced the true landmark points.
@@ -30,8 +34,11 @@ Results: I found that ....
 Social and ethical issues of face detection and landmarking:
 
 - Human faces have a huge variety
-- Everyone has a right to be able to use the technology that may be supported by computer vision
-- Therefore both the computer vision techniques and actual implementation of those techniques (e.g. the actual training images used) should be developed with the full diversity of humans in mind.
+- Everyone has a right to be able to use the technology that may be supported by
+  computer vision
+- Therefore both the computer vision techniques and actual implementation of
+  those techniques (e.g. the actual training images used) should be developed
+  with the full diversity of humans in mind.
 
 
 # Introduction
@@ -109,7 +116,8 @@ marking a boundary, such as the edge of the face.
     more widely used schemes."
     width=60%
     }
-call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
+call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" \
+                             "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
 ```
 
 There are several approaches to achieving this goal, but they can largely be
