@@ -21,6 +21,10 @@ pagestyle: headings
 numbersections: true
 toc: true
 toc-depth: 2
+lof: true
+#lot: true
+
+autoEqnLabels: true
 
 indent: true # stops pandoc overriding parskip
 colorlinks: true

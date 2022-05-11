@@ -94,6 +94,7 @@ references:
     - year: 2013
       month: 12
   language: en
+  note: 'Implementation: https://github.com/TadasBaltrusaitis/OpenFace'
   page: 354-361
   publisher: IEEE
   publisher-place: Sydney, Australia
@@ -476,6 +477,47 @@ references:
   type: article-journal
   URL: https://www.mdpi.com/1099-4300/23/8/1047
   volume: '23'
+
+- id: gower1975a
+  abstract: >-
+    SupposePi(i)(i = 1, 2, ...,m, j = 1, 2, ...,n) give the locations ofmn
+    points inp-dimensional space. Collectively these may be regarded asm
+    configurations, or scalings, each ofn points inp-dimensions. The problem is
+    investigated of translating, rotating, reflecting and scaling them
+    configurations to minimize the goodness-of-fit criterion
+    Σi=1mΣi=1nΔ2(Pj(i)Gi), whereGiis the centroid of them pointsPi(i)(i = 1, 2,
+    ...,m). The rotated positions of each configuration may be regarded as
+    individual analyses with the centroid configuration representing a
+    consensus, and this relationship with individual scaling analysis is
+    discussed. A computational technique is given, the results of which can be
+    summarized in analysis of variance form. The special casem = 2 corresponds
+    to Classical Procrustes analysis but the choice of criterion that fits each
+    configuration to the common centroid configuration avoids difficulties that
+    arise when one set is fitted to the other, regarded as fixed.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 10
+  author:
+    - family: Gower
+      given: J. C.
+  citation-key: gower1975a
+  container-title: Psychometrika
+  container-title-short: Psychometrika
+  DOI: 10.1007/BF02291478
+  ISSN: 1860-0980
+  issue: '1'
+  issued:
+    - year: 1975
+      month: 3
+      day: 1
+  language: en
+  page: 33-51
+  source: Springer Link
+  title: Generalized procrustes analysis
+  type: article-journal
+  URL: https://doi.org/10.1007/BF02291478
+  volume: '40'
 
 - id: grossMatthEtAl2010a
   abstract: >-
@@ -1077,6 +1119,24 @@ references:
   type: article-journal
   URL: http://arxiv.org/abs/1901.10436
 
+- id: mobm2008a
+  accessed:
+    - year: 2022
+      month: 5
+      day: 10
+  author:
+    - literal: mob mob
+  citation-key: mobm2008a
+  issued:
+    - year: 2008
+      month: 5
+      day: 28
+  medium: photo
+  source: Flickr
+  title: Sleeping Baby
+  type: graphic
+  URL: https://www.flickr.com/photos/biblicone/2533285432/
+
 - id: murphTrive2009a
   abstract: >-
     The capacity to estimate the head pose of another person is a common human
@@ -1398,6 +1458,35 @@ references:
   URL: https://doi.org/10.1007/s11263-010-0380-4
   volume: '91'
 
+- id: stegm2002c
+  abstract: >-
+    This report provides an analysis of 37 annotated frontal face images. All
+    results presented have been obtained using our freely available Active
+    Appearance Model (AAM) implementation. To ensure the reproducibility of the
+    presented experiments, the data set has also been made available. As such,
+    the data and this report may serve as a point of reference to compare other
+    AAM implementations against. In addition, we address the problem of AAM
+    model truncation using parallel analysis along with a comparable study of
+    the two prevalent AAM learning methods; principal component regression and
+    estimation of ﬁxed Jacobian matrices. To assess applicability and eﬃciency,
+    timings for model building, warping and optimisation are given together with
+    a description of how to exploit the warping capabilities of contemporary
+    consumer-level graphics hardware.
+  author:
+    - family: Stegmann
+      given: Mikkel B
+  citation-key: stegm2002c
+  issued:
+    - year: 2002
+      month: 8
+  language: en
+  page: '25'
+  title: >-
+    Analysis and Segmentation of Face Images using Point Annotations and Linear
+    Subspace Techniques
+  type: article-journal
+  URL: http://www2.imm.dtu.dk/pubdb/edoc/imm922.pdf
+
 - id: taigmYangEtAl2014a
   abstract: >-
     In modern face recognition, the conventional pipeline consists of four
@@ -1437,6 +1526,54 @@ references:
   title: 'DeepFace: Closing the Gap to Human-Level Performance in Face Verification'
   title-short: DeepFace
   type: paper-conference
+
+- id: tzimiPanti2013a
+  abstract: >-
+    We describe a very simple framework for deriving the most-well known
+    optimization problems in Active Appearance Models (AAMs), and most
+    importantly for providing efﬁcient solutions. Our formulation results in two
+    optimization problems for fast and exact AAM ﬁtting, and one new algorithm
+    which has the important advantage of being applicable to 3D. We show that
+    the dominant cost for both forward and inverse algorithms is a few times mN
+    which is the cost of projecting an image onto the appearance subspace. This
+    makes both algorithms not only computationally realizable but also very
+    attractive speed-wise for most current systems. Because exact AAM ﬁtting is
+    no longer computationally prohibitive, we trained AAMs in-the-wild with the
+    goal of investigating whether AAMs beneﬁt from such a training process. Our
+    results show that although we did not use sophisticated shape priors, robust
+    features or robust norms for improving performance, AAMs perform notably
+    well and in some cases comparably with current state-ofthe-art methods. We
+    provide Matlab source code for training, ﬁtting and reproducing the results
+    presented in this paper at http://ibug.doc.ic.ac.uk/resources.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 10
+  author:
+    - family: Tzimiropoulos
+      given: Georgios
+    - family: Pantic
+      given: Maja
+  citation-key: tzimiPanti2013a
+  container-title: 2013 IEEE International Conference on Computer Vision
+  DOI: 10.1109/ICCV.2013.79
+  event: 2013 IEEE International Conference on Computer Vision (ICCV)
+  event-place: Sydney, Australia
+  ISBN: 978-1-4799-2840-8
+  issued:
+    - year: 2013
+      month: 12
+  language: en
+  note: >-
+    Implementation:
+    https://ibug.doc.ic.ac.uk/resources/fitting-aams-wild-iccv-2013/
+  page: 593-600
+  publisher: IEEE
+  publisher-place: Sydney, Australia
+  source: DOI.org (Crossref)
+  title: Optimization Problems for Fast AAM Fitting in-the-Wild
+  type: paper-conference
+  URL: http://ieeexplore.ieee.org/document/6751183/
 
 - id: violaJones2001a
   abstract: >-
