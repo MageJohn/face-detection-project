@@ -2,7 +2,27 @@
 title: Evaulation of facial landmarking methods
 author: "Yuri Pieters"
 date: "25th May 2022"
-subtitle: University of York, Department of Computer Science
+
+header-includes:
+  - |
+    ```{=latex}
+    \setkomafont{subject}{ \normalfont\normalcolor\large }
+    \setkomafont{publishers}{ \large }
+
+    \titlehead{%
+      \hfill Department of Computer Science\\
+      \vspace{32pt}
+      \begin{center}
+        \includegraphics[height=1in]{images/UOY-Logo-Stacked-shield-Black.png}
+      \end{center}
+    }
+    \subject{Submitted in part fulfilment for the degree of BSc.}
+    \publishers{Supervisor: Nick Pears}
+    ```
+  - |
+    ```{=latex}
+    \setmathrm{TeX Gyre Pagella}
+    ```
 ...
 
 \listoffigures

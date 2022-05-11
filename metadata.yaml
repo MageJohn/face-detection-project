@@ -7,6 +7,7 @@ classoption:
 - parskip=full
 
 mainfont: "TeX Gyre Heros"
+sansfont: "TeX Gyre Heros"
 fontsize: 12pt
 
 geometry:
@@ -14,6 +15,8 @@ geometry:
 - right=4cm
 - top=2.5cm
 - bottom=4cm
+
+pagestyle: headings
 
 numbersections: true
 toc: true
