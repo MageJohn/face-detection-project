@@ -59,6 +59,21 @@ separately. One such pre-processing technique that turns out to be useful for
 multiple different tasks is facial landmarking [@martiValst2016a;
 @murphTrive2009a].
 
+
+```{
+    #fig:landmarkExample
+    .gnuplot
+    format=PNG
+    dependencies="[images/gnuplot/render_pts.gp, images/gnuplot/process_pts.awk]"
+    caption="Example of a face from the 300W face dataset [@sagonAntonEtAl2016a]
+    with a set of landmark points annotated."
+    width=60%
+    }
+call "images/gnuplot/render_pts.gp" \
+     "Datasets/300w_cropped/01_Indoor/indoor_225.png" \
+     "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
+```
+
 Facial landmarking can be used to as part of the process of solving more
 difficult facial analysis problems in different ways. Most obviously, landmarks
 can be used directly as input data for a model. A model for head pose estimation
@@ -105,20 +120,6 @@ landmarks. Landmarks points may either mark a well defined facial part, such as
 the tip of the nose or the corner of the eye, or they may be part of a group
 marking a boundary, such as the edge of the face.
 
-```{
-    #fig:landmarkExample
-    .gnuplot
-    format=PNG
-    dependencies="[gnuplot/render_pts.gp, gnuplot/process_pts.awk]"
-    caption="Example of a face from the 300W face dataset [@sagonAntonEtAl2016a]
-    with a set of 68 landmark points annotated. The 68 point scheme was first
-    used for the Multi-PIE [@grossMatthEtAl2010a] dataset, and is now one of the
-    more widely used schemes."
-    width=60%
-    }
-call "gnuplot/render_pts.gp" "Datasets/300w_cropped/01_Indoor/indoor_225.png" \
-                             "Datasets/300w_cropped/01_Indoor/indoor_225.pts"
-```
 
 There are several approaches to achieving this goal, but they can largely be
 divided into three categories [@wuJi2019a]: generative holistic methods,

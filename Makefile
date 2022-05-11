@@ -5,7 +5,7 @@ PDC_FLAGS := --pdf-engine=xelatex -F pandoc-plot -F pandoc-crossref --citeproc
 
 default: report.pdf
 
-COMMON_PREREQS := report.md metadata.yaml bibliography.yaml ieee.csl gnuplot/render_pts.gp
+COMMON_PREREQS := report.md metadata.yaml bibliography.yaml ieee.csl images/gnuplot/*
 
 report.pdf: ${COMMON_PREREQS}
 	${PDC} ${PDC_FLAGS} metadata.yaml $< -o $@
