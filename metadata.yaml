@@ -20,7 +20,7 @@ pagestyle: headings
 
 numbersections: true
 toc: true
-toc-depth: 2
+toc-depth: 1
 lof: true
 #lot: true
 
