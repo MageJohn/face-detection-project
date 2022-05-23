@@ -15,6 +15,9 @@ dependencies = [
   "types-Pillow",
 ]
 
+[project.scripts]
+experiments = "experiments.cli:cli"
+
 [tool.pyright]
 include = ["experiments"]
 typeCheckingMode = "strict"
