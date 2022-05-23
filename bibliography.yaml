@@ -1,5 +1,87 @@
 ---
 references:
+- id: alaboZafei2014a
+  abstract: >-
+    In this paper we provide the ﬁrst, to the best of our knowledge, Bayesian
+    formulation of one of the most successful and well-studied statistical
+    models of shape and texture, i.e. Active Appearance Models (AAMs). To this
+    end, we use a simple probabilistic model for texture generation assuming
+    both Gaussian noise and a Gaussian prior over a latent texture space. We
+    retrieve the shape parameters by formulating a novel cost function obtained
+    by marginalizing out the latent texture space. This results in a fast
+    implementation when compared to other simultaneous algorithms for ﬁtting
+    AAMs, mainly due to the removal of the calculation of texture parameters. We
+    demonstrate that, contrary to what is believed regarding the performance of
+    AAMs in generic ﬁtting scenarios, optimization of the proposed cost function
+    produces results that outperform discriminatively trained state-of-the-art
+    methods in the problem of facial alignment “in the wild”.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 15
+  author:
+    - family: Alabort-i-Medina
+      given: Joan
+    - family: Zafeiriou
+      given: Stefanos
+  citation-key: alaboZafei2014a
+  container-title: 2014 IEEE Conference on Computer Vision and Pattern Recognition
+  DOI: 10.1109/CVPR.2014.439
+  event: 2014 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)
+  event-place: Columbus, OH, USA
+  ISBN: 978-1-4799-5118-5
+  issued:
+    - year: 2014
+      month: 6
+  language: en
+  page: 3438-3445
+  publisher: IEEE
+  publisher-place: Columbus, OH, USA
+  source: DOI.org (Crossref)
+  title: Bayesian Active Appearance Models
+  type: paper-conference
+  URL: https://ieeexplore.ieee.org/document/6909835
+
+- id: alaboZafei2016a
+  abstract: >-
+    Active Appearance Models (AAMs) are one of the most popular and
+    well-established techniques for modeling deformable objects in computer
+    vision. In this paper, we study the problem of fitting AAMs using
+    Compositional Gradient Descent (CGD) algorithms. We present a unified and
+    complete view of these algorithms and classify them with respect to three
+    main characteristics: i) cost function; ii) type of composition; and iii)
+    optimization method. Furthermore, we extend the previous view by: a)
+    proposing a novel Bayesian cost function that can be interpreted as a
+    general probabilistic formulation of the well-known project-out loss; b)
+    introducing two new types of composition, asymmetric and bidirectional, that
+    combine the gradients of both image and appearance model to derive better
+    conver- gent and more robust CGD algorithms; and c) providing new valuable
+    insights into existent CGD algorithms by reinterpreting them as direct
+    applications of the Schur complement and the Wiberg method. Finally, in
+    order to encourage open research and facilitate future comparisons with our
+    work, we make the implementa- tion of the algorithms studied in this paper
+    publicly available as part of the Menpo Project.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 16
+  author:
+    - family: Alabort-i-Medina
+      given: Joan
+    - family: Zafeiriou
+      given: Stefanos
+  citation-key: alaboZafei2016a
+  container-title: arXiv:1601.00199 [cs]
+  issued:
+    - year: 2016
+      month: 1
+      day: 2
+  note: '# of Pages: 39'
+  source: arXiv.org
+  title: A Unified Framework for Compositional Fitting of Active Appearance Models
+  type: article-journal
+  URL: http://arxiv.org/abs/1601.00199
+
 - id: almad2018a
   abstract: >-
     Face detection is a crucial task in multistage computer vision systems. This
@@ -31,6 +113,44 @@ references:
   title: 'Comparative Analysis of Face Detection Algorithms: Novice to Novel'
   title-short: Comparative Analysis of Face Detection Algorithms
   type: paper-conference
+
+- id: antonAlaboEtAl2015a
+  abstract: >-
+    Lucas-Kanade and active appearance models are among the most commonly used
+    methods for image alignment and facial fitting, respectively. They both
+    utilize nonlinear gradient descent, which is usually applied on intensity
+    values. In this paper, we propose the employment of highly descriptive,
+    densely sampled image features for both problems. We show that the strategy
+    of warping the multichannel dense feature image at each iteration is more
+    beneficial than extracting features after warping the intensity image at
+    each iteration. Motivated by this observation, we demonstrate robust and
+    accurate alignment and fitting performance using a variety of powerful
+    feature descriptors. Especially with the employment of histograms of
+    oriented gradient and scale-invariant feature transform features, our method
+    significantly outperforms the current state-of-the-art results on
+    in-the-wild databases.
+  author:
+    - family: Antonakos
+      given: Epameinondas
+    - family: Alabort-i-Medina
+      given: Joan
+    - family: Tzimiropoulos
+      given: Georgios
+    - family: Zafeiriou
+      given: Stefanos P.
+  citation-key: antonAlaboEtAl2015a
+  container-title: IEEE Transactions on Image Processing
+  DOI: 10.1109/TIP.2015.2431445
+  ISSN: 1941-0042
+  issue: '9'
+  issued:
+    - year: 2015
+      month: 9
+  page: 2617-2632
+  source: IEEE Xplore
+  title: Feature-Based Lucas–Kanade and Active Appearance Models
+  type: article-journal
+  volume: '24'
 
 - id: asthaZafeiEtAl2013a
   accessed:
@@ -157,6 +277,47 @@ references:
   type: paper-conference
   URL: https://ieeexplore.ieee.org/document/8373812/
 
+- id: bulatTzimi2020a
+  abstract: >-
+    Our goal is to design architectures that retain the groundbreaking
+    performance of Convolutional Neural Networks (CNNs) for landmark
+    localization and at the same time are lightweight, compact and suitable for
+    applications with limited computational resources. To this end, we make the
+    following contributions: (a) we are the first to study the effect of neural
+    network binarization on localization tasks, namely human pose estimation and
+    face alignment. We exhaustively evaluate various design choices, identify
+    performance bottlenecks, and more importantly propose multiple orthogonal
+    ways to boost performance. (b) Based on our analysis, we propose a novel
+    hierarchical, parallel and multi-scale residual architecture that yields
+    large performance improvement over the standard bottleneck block while
+    having the same number of parameters, thus bridging the gap between the
+    original network and its binarized counterpart. (c) We perform a large
+    number of ablation studies that shed light on the properties and the
+    performance of the proposed block. (d) We present results for experiments on
+    the most challenging datasets for human pose estimation and face alignment,
+    reporting in many cases state-of-the-art performance. (e) We further provide
+    additional results for the problem of facial part segmentation. Code can be
+    downloaded from https://www.adrianbulat.com/binary-cnn-landmarks.
+  author:
+    - family: Bulat
+      given: Adrian
+    - family: Tzimiropoulos
+      given: Georgios
+  citation-key: bulatTzimi2020a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/TPAMI.2018.2866051
+  ISSN: 1939-3539
+  issue: '2'
+  issued:
+    - year: 2020
+      month: 2
+  note: 'Implementation: https://www.adrianbulat.com/binary-cnn-landmarks'
+  page: 343-356
+  source: IEEE Xplore
+  title: Hierarchical Binary CNNs for Landmark Localization with Limited Resources
+  type: article-journal
+  volume: '42'
+
 - id: buolaGebru2018a
   abstract: >-
     Recent studies demonstrate that machine learning algorithms can discriminate
@@ -234,6 +395,42 @@ references:
   type: article-journal
   volume: '23'
 
+- id: cristCoote2004b
+  abstract: >-
+    We consider the problem of robustly and accurately locating facial features.
+    The relative positions of different feature points are represented using a
+    statistical shape model. We construct an individual detector for each
+    feature point, which is used to generate a feature response image. The
+    quality of a given hypothesised shape can be evaluated quickly by combining
+    values from each response image. We use global search to predict the
+    approximate position of the face, and then refine the hypothesis using
+    non-linear optimisation. The result is an algorithm capable of robustly and
+    accurately matching a face model to new images, which we refer to as shape
+    optimised search (SOS). We describe SOS in detail and compare the
+    performance of the algorithm when three different classes of feature
+    detectors are used. We demonstrate that the approach is capable of
+    outperforming the well known active appearance model method.
+  author:
+    - family: Cristinacce
+      given: D.
+    - family: Cootes
+      given: T.F.
+  citation-key: cristCoote2004b
+  container-title: >-
+    Sixth IEEE International Conference on Automatic Face and Gesture
+    Recognition, 2004. Proceedings.
+  DOI: 10.1109/AFGR.2004.1301561
+  event: >-
+    Sixth IEEE International Conference on Automatic Face and Gesture
+    Recognition, 2004. Proceedings.
+  issued:
+    - year: 2004
+      month: 5
+  page: 375-380
+  source: IEEE Xplore
+  title: A comparison of shape constrained facial feature detectors
+  type: paper-conference
+
 - id: cristCoote2006a
   accessed:
     - year: 2022
@@ -260,6 +457,43 @@ references:
   title: Feature Detection and Tracking with Constrained Local Models
   type: paper-conference
   URL: http://www.bmva.org/bmvc/2006/papers/024.html
+
+- id: dalalTrigg2005a
+  abstract: >-
+    We study the question of feature sets for robust visual object recognition;
+    adopting linear SVM based human detection as a test case. After reviewing
+    existing edge and gradient based descriptors, we show experimentally that
+    grids of histograms of oriented gradient (HOG) descriptors significantly
+    outperform existing feature sets for human detection. We study the influence
+    of each stage of the computation on performance, concluding that fine-scale
+    gradients, fine orientation binning, relatively coarse spatial binning, and
+    high-quality local contrast normalization in overlapping descriptor blocks
+    are all important for good results. The new approach gives near-perfect
+    separation on the original MIT pedestrian database, so we introduce a more
+    challenging dataset containing over 1800 annotated human images with a large
+    range of pose variations and backgrounds.
+  author:
+    - family: Dalal
+      given: N.
+    - family: Triggs
+      given: B.
+  citation-key: dalalTrigg2005a
+  container-title: >-
+    2005 IEEE Computer Society Conference on Computer Vision and Pattern
+    Recognition (CVPR'05)
+  DOI: 10.1109/CVPR.2005.177
+  event: >-
+    2005 IEEE Computer Society Conference on Computer Vision and Pattern
+    Recognition (CVPR'05)
+  ISSN: 1063-6919
+  issued:
+    - year: 2005
+      month: 6
+  page: 886-893 vol. 1
+  source: IEEE Xplore
+  title: Histograms of oriented gradients for human detection
+  type: paper-conference
+  volume: '1'
 
 - id: dantoGallEtAl2012a
   abstract: >-
@@ -360,6 +594,43 @@ references:
   URL: https://doi.org/10.1007/s11263-018-1134-y
   volume: '127'
 
+- id: edwarTayloEtAl1998a
+  abstract: >-
+    We demonstrate a fast, robust method of interpreting face images using an
+    Active Appearance Model (AAM). An AAM contains a statistical model of shape
+    and grey level appearance which can generalise to almost any face. Matching
+    to an image involves finding model parameters which minimise the difference
+    between the image and a synthesised face. We observe that displacing each
+    model parameter from the correct value induces a particular pattern in the
+    residuals. In a training phase, the AAM learns a linear model of the
+    correlation between parameter displacements and the induced residuals.
+    During search it measures the residuals and uses this model to correct the
+    current parameters, leading to a better fit. A good overall match is
+    obtained in a few iterations, even from poor starting estimates. We describe
+    the technique in detail and show it matching to new face images.
+  author:
+    - family: Edwards
+      given: G.J.
+    - family: Taylor
+      given: C.J.
+    - family: Cootes
+      given: T.F.
+  citation-key: edwarTayloEtAl1998a
+  container-title: >-
+    Proceedings Third IEEE International Conference on Automatic Face and
+    Gesture Recognition
+  DOI: 10.1109/AFGR.1998.670965
+  event: >-
+    Proceedings Third IEEE International Conference on Automatic Face and
+    Gesture Recognition
+  issued:
+    - year: 1998
+      month: 4
+  page: 300-305
+  source: IEEE Xplore
+  title: Interpreting face images using active appearance models
+  type: paper-conference
+
 - id: everiEslamEtAl2015a
   abstract: "The Pascal Visual Object Classes (VOC) challenge consists of two components: (i)\_a publicly available dataset of images together with ground truth annotation and standardised evaluation software; and (ii)\_an annual competition and workshop. There are five challenges: classification, detection, segmentation, action classification, and person layout. In this paper we provide a review of the challenge from 2008–2012. The paper is intended for two audiences: algorithm designers, researchers who want to see what the state of the art is, as measured by performance on the VOC datasets, along with the limitations and weak points of the current generation of algorithms; and, challenge designers, who want to see what we as organisers have learnt from the process and our recommendations for the organisation of future challenges. To analyse the performance of submitted algorithms on the VOC datasets we introduce a number of novel evaluation methods: a bootstrapping method for determining whether differences in the performance of two algorithms are significant or not; a normalised average precision so that performance can be compared across classes with different proportions of positive instances; a clustering method for visualising the performance across multiple algorithms so that the hard and easy images can be identified; and the use of a joint classifier over the submitted algorithms in order to measure their complementarity and combined performance. We also analyse the community’s progress through time using the methods of Hoiem et al. (Proceedings of European Conference on Computer Vision, 2012) to identify the types of occurring errors. We conclude the paper with an appraisal of the aspects of the challenge that worked well, and those that could be improved in future challenges."
   accessed:
@@ -412,7 +683,7 @@ references:
   issued:
     - year: 2012
   language: en
-  number-of-pages: '1'
+  number-of-pages: '792'
   publisher: Pearson
   publisher-place: Boston
   source: Library of Congress ISBN
@@ -477,6 +748,52 @@ references:
   type: article-journal
   URL: https://www.mdpi.com/1099-4300/23/8/1047
   volume: '23'
+
+- id: goodfBengiEtAl2016a
+  abstract: >-
+    "Written by three experts in the field, Deep Learning is the only
+    comprehensive book on the subject." -- Elon Musk, cochair of OpenAI;
+    cofounder and CEO of Tesla and SpaceXDeep learning is a form of machine
+    learning that enables computers to learn from experience and understand the
+    world in terms of a hierarchy of concepts. Because the computer gathers
+    knowledge from experience, there is no need for a human computer operator to
+    formally specify all the knowledge that the computer needs. The hierarchy of
+    concepts allows the computer to learn complicated concepts by building them
+    out of simpler ones; a graph of these hierarchies would be many layers deep.
+    This book introduces a broad range of topics in deep learning. The text
+    offers mathematical and conceptual background, covering relevant concepts in
+    linear algebra, probability theory and information theory, numerical
+    computation, and machine learning. It describes deep learning techniques
+    used by practitioners in industry, including deep feedforward networks,
+    regularization, optimization algorithms, convolutional networks, sequence
+    modeling, and practical methodology; and it surveys such applications as
+    natural language processing, speech recognition, computer vision, online
+    recommendation systems, bioinformatics, and videogames. Finally, the book
+    offers research perspectives, covering such theoretical topics as linear
+    factor models, autoencoders, representation learning, structured
+    probabilistic models, Monte Carlo methods, the partition function,
+    approximate inference, and deep generative models. Deep Learning can be used
+    by undergraduate or graduate students planning careers in either industry or
+    research, and by software engineers who want to begin using deep learning in
+    their products or platforms. A website offers supplementary material for
+    both readers and instructors.
+  author:
+    - family: Goodfellow
+      given: Ian
+    - family: Bengio
+      given: Yoshua
+    - family: Courville
+      given: Aaron
+  citation-key: goodfBengiEtAl2016a
+  ISBN: 978-0-262-03561-3
+  issued:
+    - year: 2016
+  number-of-pages: '800'
+  publisher: The MIT Press
+  source: ACM Digital Library
+  title: Deep Learning
+  type: book
+  URL: https://www.deeplearningbook.org/
 
 - id: gower1975a
   abstract: >-
@@ -1039,6 +1356,47 @@ references:
   type: chapter
   URL: https://doi.org/10.1007/978-3-319-25958-1_4
 
+- id: matthBaker2004a
+  abstract: >-
+    Active Appearance Models (AAMs) and the closely related concepts of
+    Morphable Models and Active Blobs are generative models of a certain visual
+    phenomenon. Although linear in both shape and appearance, overall, AAMs are
+    nonlinear parametric models in terms of the pixel intensities. Fitting an
+    AAM to an image consists of minimising the error between the input image and
+    the closest model instance; i.e. solving a nonlinear optimisation problem.
+    We propose an efﬁcient ﬁtting algorithm for AAMs based on the inverse
+    compositional image alignment algorithm. We show that the effects of
+    appearance variation during ﬁtting can be precomputed (“projected out”)
+    using this algorithm and how it can be extended to include a global shape
+    normalising warp, typically a 2D similarity transformation. We evaluate our
+    algorithm to determine which of its novel aspects improve AAM ﬁtting
+    performance.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 15
+  author:
+    - family: Matthews
+      given: Iain
+    - family: Baker
+      given: Simon
+  citation-key: matthBaker2004a
+  container-title: International Journal of Computer Vision
+  container-title-short: International Journal of Computer Vision
+  DOI: 10.1023/B:VISI.0000029666.37597.d3
+  ISSN: 0920-5691
+  issue: '2'
+  issued:
+    - year: 2004
+      month: 11
+  language: en
+  page: 135-164
+  source: DOI.org (Crossref)
+  title: Active Appearance Models Revisited
+  type: article-journal
+  URL: http://link.springer.com/10.1023/B:VISI.0000029666.37597.d3
+  volume: '60'
+
 - id: mergeRockEtAl2018a
   accessed:
     - year: 2022
@@ -1217,6 +1575,83 @@ references:
     Baseline Results
   title-short: Pushing the Limits of Unconstrained Face Detection
   type: paper-conference
+
+- id: nixonAguad2019a
+  abstract: >-
+    Feature Extraction for Image Processing and Computer Vision is an essential
+    guide to the implementation of image processing and computer vision
+    techniques, with tutorial introductions and sample code in MATLAB and
+    Python. Algorithms are presented and fully explained to enable complete
+    understanding of the methods and techniques demonstrated. As one reviewer
+    noted, "The main strength of the proposed book is the link between theory
+    and exemplar code of the algorithms." Essential background theory is
+    carefully explained.
+
+
+    This text gives students and researchers in image processing and computer
+    vision a complete introduction to classic and state-of-the art methods in
+    feature extraction together with practical guidance on their implementation.
+  author:
+    - family: Nixon
+      given: Mark S.
+    - family: Aguado
+      given: Alberto S.
+  citation-key: nixonAguad2019a
+  DOI: 10.1016/C2017-0-02153-5
+  edition: Fourth
+  ISBN: 978-0-12-814976-8
+  issued:
+    - year: 2019
+      month: 11
+      day: 17
+  language: en
+  number-of-pages: '818'
+  publisher: Academic Press
+  source: ScienceDirect
+  title: Feature Extraction and Image Processing for Computer Vision
+  type: book
+  URL: >-
+    https://www.sciencedirect.com/book/9780128149768/feature-extraction-and-image-processing-for-computer-vision
+
+- id: paper1966a
+  abstract: >-
+    The summer vision project is an attempt to use our summer workers
+    effectively in the construction of a significant part of a visual system.
+    The particular task was chosen partly because it can be segmented into
+    sub-problems which allow individuals to work independently and yet
+    participate in the construction of a system complex enough to be real
+    landmark in the development of "pattern recognition". The basic structure is
+    fixed for the first phase of work extending to some point in July. Everyone
+    is invited to contribute to the discussion of the second phase. Sussman is
+    coordinator of "Vision Project" meetings and should be consulted by anyone
+    who wishes to participate. The primary goal of the project is to construct a
+    system of programs which will divide a vidisector picture into regions such
+    as likely objects, likely background areas and chaos. We shall call this
+    part of its operation FIGURE-GROUND analysis. It will be impossible to do
+    this without considerable analysis of shape and surface properties, so
+    FIGURE-GROUND analysis is really inseparable in practice from the second
+    goal which is REGION DESCRIPTION. The final goal is OBJECT IDENTIFICATION
+    which will actually name objects by matching them with a vocabulary of known
+    objects.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 14
+  author:
+    - family: Papert
+      given: Seymour A.
+  citation-key: paper1966a
+  container-title: AI Memos (1959 - 2004)
+  issued:
+    - year: 1966
+      month: 7
+      day: 1
+  language: en_US
+  note: 'Accepted: 2004-10-04T14:40:06Z'
+  source: dspace.mit.edu
+  title: The Summer Vision Project
+  type: article-journal
+  URL: https://dspace.mit.edu/handle/1721.1/6125
 
 - id: princ2012a
   author:
@@ -1458,7 +1893,44 @@ references:
   URL: https://doi.org/10.1007/s11263-010-0380-4
   volume: '91'
 
-- id: stegm2002c
+- id: stegm2000a
+  abstract: >-
+    This thesis presents a general approach towards image segmentation using the
+    learning-based deformable model Active Appearance Model (AAM) proposed by
+    Cootes et al. The primary advantage of AAMs is that a priori knowledge is
+    learned through observation of both shape and texture variation in a
+    training set. From this, a compact object class description is derived,
+    which can be used to rapidly search images for new object instances. A
+    thorough treatment and discussion of the theory behind AAMs is given,
+    followed by several extensions to the basic AAM, which constitutes the major
+    contribution of this thesis. Extensions include automatic initialization and
+    unification of finite element models and AAMs. All of these have been
+    implemented in a structured and fast C++ framework; the AAM-API. Finally,
+    case studies based on radiographs of metacarpals, cardiovascular magnetic
+    resonance images and perspective images of pork carcass are presented.
+    Herein the performance of the basic AAM and the developed extensions are
+    assessment using leave-one-out evaluation. It is concluded that AAMs – as a
+    data-driven and fully automated method – successfully can perform object
+    segmentation in challenging and very different image modalities with very
+    high accuracy. In two of three cases subpixel accuracy were obtained w.r.t.
+    object segmentation.
+  author:
+    - family: Stegmann
+      given: M. B.
+  citation-key: stegm2000a
+  edition: '2'
+  event-place: Richard Petersens Plads, Building 321, DK-2800 Kgs. Lyngby
+  issued:
+    - year: 2000
+      month: 8
+  page: '262'
+  publisher: Informatics and Mathematical Modelling, Technical University of Denmark, DTU
+  publisher-place: Richard Petersens Plads, Building 321, DK-2800 Kgs. Lyngby
+  title: 'Active appearance models: Theory, extensions and cases'
+  type: thesis
+  URL: http://www.imm.dtu.dk/~aam/main/
+
+- id: stegm2002a
   abstract: >-
     This report provides an analysis of 37 annotated frontal face images. All
     results presented have been obtained using our freely available Active
@@ -1475,7 +1947,7 @@ references:
   author:
     - family: Stegmann
       given: Mikkel B
-  citation-key: stegm2002c
+  citation-key: stegm2002a
   issued:
     - year: 2002
       month: 8
@@ -1486,6 +1958,71 @@ references:
     Subspace Techniques
   type: article-journal
   URL: http://www2.imm.dtu.dk/pubdb/edoc/imm922.pdf
+
+- id: sunWangEtAl2013a
+  abstract: >-
+    We propose a new approach for estimation of the positions of facial key
+    points with three-level carefully designed convolutional networks. At each
+    level, the outputs of multiple networks are fused for robust and accurate
+    estimation. Thanks to the deep structures of convolutional networks, global
+    high-level features are extracted over the whole face region at the
+    initialization stage, which help to locate high accuracy key points. There
+    are two folds of advantage for this. First, the texture context information
+    over the entire face is utilized to locate each key point. Second, since the
+    networks are trained to predict all the key points simultaneously, the
+    geometric constraints among key points are implicitly encoded. The method
+    therefore can avoid local minimum caused by ambiguity and data corruption in
+    difficult image samples due to occlusions, large pose variations, and
+    extreme lightings. The networks at the following two levels are trained to
+    locally refine initial predictions and their inputs are limited to small
+    regions around the initial predictions. Several network structures critical
+    for accurate and robust facial point detection are investigated. Extensive
+    experiments show that our approach outperforms state-of-the-art methods in
+    both detection accuracy and reliability.
+  author:
+    - family: Sun
+      given: Yi
+    - family: Wang
+      given: Xiaogang
+    - family: Tang
+      given: Xiaoou
+  citation-key: sunWangEtAl2013a
+  container-title: 2013 IEEE Conference on Computer Vision and Pattern Recognition
+  DOI: 10.1109/CVPR.2013.446
+  event: 2013 IEEE Conference on Computer Vision and Pattern Recognition
+  ISSN: 1063-6919
+  issued:
+    - year: 2013
+      month: 6
+  note: 'Implementation: https://mmlab.ie.cuhk.edu.hk/archive/CNN/'
+  page: 3476-3483
+  source: IEEE Xplore
+  title: Deep Convolutional Network Cascade for Facial Point Detection
+  type: paper-conference
+
+- id: szeli2022a
+  accessed:
+    - year: 2022
+      month: 5
+      day: 14
+  author:
+    - family: Szeliski
+      given: Richard
+  citation-key: szeli2022a
+  collection-title: Texts in Computer Science
+  DOI: 10.1007/978-3-030-34372-9
+  event-place: Cham
+  ISBN: 978-3-030-34371-2 978-3-030-34372-9
+  issued:
+    - year: 2022
+  language: en
+  publisher: Springer International Publishing
+  publisher-place: Cham
+  source: DOI.org (Crossref)
+  title: 'Computer Vision: Algorithms and Applications'
+  title-short: Computer Vision
+  type: book
+  URL: https://link.springer.com/10.1007/978-3-030-34372-9
 
 - id: taigmYangEtAl2014a
   abstract: >-
@@ -1574,6 +2111,88 @@ references:
   title: Optimization Problems for Fast AAM Fitting in-the-Wild
   type: paper-conference
   URL: http://ieeexplore.ieee.org/document/6751183/
+
+- id: tzimiZafeiEtAl2011a
+  abstract: >-
+    We propose a correlation-based approach to parametric object alignment
+    particularly suitable for face analysis applications which require
+    efficiency and robustness against occlusions and illumination changes. Our
+    algorithm registers two images by iteratively maximizing their correlation
+    coefficient using gradient ascent. We compute this correlation coefficient
+    from complex gradients which capture the orientation of image structures
+    rather than pixel intensities. The maximization of this gradient correlation
+    coefficient results in an algorithm which is as computationally efficient as
+    ℓ2 norm-based algorithms, can be extended within the inverse compositional
+    framework (without the need for Hessian recomputation) and is robust to
+    outliers. To the best of our knowledge, no other algorithm has been proposed
+    so far having all three features. We show the robustness of our algorithm
+    for the problem of face alignment in the presence of occlusions and
+    non-uniform illumination changes. The code that reproduces the results of
+    our paper can be found at http://ibug.doc.ic.ac.uk/resources.
+  author:
+    - family: Tzimiropoulos
+      given: Georgios
+    - family: Zafeiriou
+      given: Stefanos
+    - family: Pantic
+      given: Maja
+  citation-key: tzimiZafeiEtAl2011a
+  container-title: 2011 International Conference on Computer Vision
+  DOI: 10.1109/ICCV.2011.6126452
+  event: 2011 International Conference on Computer Vision
+  ISSN: 2380-7504
+  issued:
+    - year: 2011
+      month: 11
+  page: 1847-1854
+  source: IEEE Xplore
+  title: Robust and efficient parametric face alignment
+  type: paper-conference
+
+- id: tzimiZafeiEtAl2012a
+  abstract: >-
+    We introduce the notion of subspace learning from image gradient
+    orientations for appearance-based object recognition. As image data are
+    typically noisy and noise is substantially different from Gaussian,
+    traditional subspace learning from pixel intensities very often fails to
+    estimate reliably the low-dimensional subspace of a given data population.
+    We show that replacing pixel intensities with gradient orientations and the
+    ℓ2 norm with a cosine-based distance measure offers, to some extend, a
+    remedy to this problem. Within this framework, which we coin Image Gradient
+    Orientations (IGO) subspace learning, we first formulate and study the
+    properties of Principal Component Analysis of image gradient orientations
+    (IGO-PCA). We then show its connection to previously proposed robust PCA
+    techniques both theoretically and experimentally. Finally, we derive a
+    number of other popular subspace learning techniques, namely, Linear
+    Discriminant Analysis (LDA), Locally Linear Embedding (LLE), and Laplacian
+    Eigenmaps (LE). Experimental results show that our algorithms significantly
+    outperform popular methods such as Gabor features and Local Binary Patterns
+    and achieve state-of-the-art performance for difficult problems such as
+    illumination and occlusion-robust face recognition. In addition to this, the
+    proposed IGO-methods require the eigendecomposition of simple covariance
+    matrices and are as computationally efficient as their corresponding ℓ2 norm
+    intensity-based counterparts. Matlab code for the methods presented in this
+    paper can be found at http://ibug.doc.ic.ac.uk/resources.
+  author:
+    - family: Tzimiropoulos
+      given: Georgios
+    - family: Zafeiriou
+      given: Stefanos
+    - family: Pantic
+      given: Maja
+  citation-key: tzimiZafeiEtAl2012a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/TPAMI.2012.40
+  ISSN: 1939-3539
+  issue: '12'
+  issued:
+    - year: 2012
+      month: 12
+  page: 2454-2466
+  source: IEEE Xplore
+  title: Subspace Learning from Image Gradient Orientations
+  type: article-journal
+  volume: '34'
 
 - id: violaJones2001a
   abstract: >-
