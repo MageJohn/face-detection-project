@@ -5,6 +5,7 @@ src/venv/
 src/.*/
 __pycache__/
 *.egg-info
+src/data/
 
 plots/
 report.tex
