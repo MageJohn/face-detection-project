@@ -1,4 +1,6 @@
 directory: images/plots/
+dpi: 160
+strict: true
 
 matplotlib:
   preamble: pandoc-plot/matplotlib.py

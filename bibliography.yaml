@@ -277,6 +277,41 @@ references:
   type: paper-conference
   URL: https://ieeexplore.ieee.org/document/8373812/
 
+- id: belhuJacobEtAl2011a
+  abstract: >-
+    We present a novel approach to localizing parts in images of human faces.
+    The approach combines the output of local detectors with a non-parametric
+    set of global models for the part locations based on over one thousand
+    hand-labeled exemplar images. By assuming that the global models generate
+    the part locations as hidden variables, we derive a Bayesian objective
+    function. This function is optimized using a consensus of models for these
+    hidden variables. The resulting localizer handles a much wider range of
+    expression, pose, lighting and occlusion than prior ones. We show excellent
+    performance on a new dataset gathered from the internet and show that our
+    localizer achieves state-of-the-art performance on the less challenging
+    BioID dataset.
+  author:
+    - family: Belhumeur
+      given: Peter N.
+    - family: Jacobs
+      given: David W.
+    - family: Kriegman
+      given: David J.
+    - family: Kumar
+      given: Neeraj
+  citation-key: belhuJacobEtAl2011a
+  container-title: CVPR 2011
+  DOI: 10.1109/CVPR.2011.5995602
+  event: CVPR 2011
+  ISSN: 1063-6919
+  issued:
+    - year: 2011
+      month: 6
+  page: 545-552
+  source: IEEE Xplore
+  title: Localizing parts of faces using a consensus of exemplars
+  type: paper-conference
+
 - id: bulatTzimi2020a
   abstract: >-
     Our goal is to design architectures that retain the groundbreaking
@@ -394,6 +429,76 @@ references:
   title: Active appearance models
   type: article-journal
   volume: '23'
+
+- id: cooteTaylo1992a
+  accessed:
+    - year: 2022
+      month: 5
+      day: 23
+  author:
+    - family: Cootes
+      given: T. F.
+    - family: Taylor
+      given: C. J.
+  citation-key: cooteTaylo1992a
+  container-title: Procedings of the British Machine Vision Conference 1992
+  DOI: 10.5244/C.6.28
+  event: British Machine Vision Conference 1992
+  event-place: Leeds
+  ISBN: 978-3-540-19777-5
+  issued:
+    - year: 1992
+  language: en
+  page: 28.1-28.10
+  publisher: Springer-Verlag London Limited
+  publisher-place: Leeds
+  source: DOI.org (Crossref)
+  title: Active Shape Models - 'smart snakes'
+  type: paper-conference
+  URL: http://www.bmva.org/bmvc/1992/bmvc-92-028.html
+
+- id: cooteTayloEtAl1992a
+  abstract: >-
+    A method for building flexible shape models is presented in which a shape is
+    represented by a set of labelled points. The technique determines the
+    statistics of the points over a collection of example shapes. The mean
+    positions of the points give an average shape and a number of modes of
+    variation are determined describing the main ways in which the example
+    shapes tend to deform from the average. In this way allowed variation in
+    shape can be included in the model. The method produces a compact flexible
+    'Point Distribution Model' with a small number of linearly independent
+    parameters, which can be used during image search. We demonstrate the
+    application of the Point Distribution Model in describing two classes of
+    shapes.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 23
+  author:
+    - family: Cootes
+      given: T. F.
+    - family: Taylor
+      given: C. J.
+    - family: Cooper
+      given: D. H.
+    - family: Graham
+      given: J.
+  citation-key: cooteTayloEtAl1992a
+  container-title: Procedings of the British Machine Vision Conference 1992
+  DOI: 10.5244/C.6.2
+  event: British Machine Vision Conference 1992
+  event-place: Leeds
+  ISBN: 978-3-540-19777-5
+  issued:
+    - year: 1992
+  language: en
+  page: 2.1-2.10
+  publisher: Springer-Verlag London Limited
+  publisher-place: Leeds
+  source: DOI.org (Crossref)
+  title: Training Models of Shape from Sets of Examples
+  type: paper-conference
+  URL: http://www.bmva.org/bmvc/1992/bmvc-92-002.html
 
 - id: cristCoote2004b
   abstract: >-
@@ -888,6 +993,51 @@ references:
   URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2873597/
   volume: '28'
 
+- id: guKanad2008a
+  abstract: >-
+    In this paper, we present a robust face alignment system that is capable of
+    dealing with exaggerating expressions, large occlusions, and a wide variety
+    of image noises. The robustness comes from our shape regularization model,
+    which incorporates constrained nonlinear shape prior, geometric
+    transformation, and likelihood of multiple candidate landmarks in a
+    three-layered generative model. The inference algorithm iteratively examines
+    the best candidate positions and updates face shape and pose. This model can
+    eﬀectively recover suﬃcient shape details from very noisy observations. We
+    demonstrate the performance of this approach on two public domain databases
+    and a large collection of real-world face photographs.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 23
+  author:
+    - family: Gu
+      given: Leon
+    - family: Kanade
+      given: Takeo
+  citation-key: guKanad2008a
+  container-title: Computer Vision – ECCV 2008
+  DOI: 10.1007/978-3-540-88682-2_32
+  editor:
+    - family: Forsyth
+      given: David
+    - family: Torr
+      given: Philip
+    - family: Zisserman
+      given: Andrew
+  event-place: Berlin, Heidelberg
+  ISBN: 978-3-540-88681-5 978-3-540-88682-2
+  issued:
+    - year: 2008
+  language: en
+  page: 413-426
+  publisher: Springer Berlin Heidelberg
+  publisher-place: Berlin, Heidelberg
+  source: DOI.org (Crossref)
+  title: A Generative Shape Regularization Model for Robust Face Alignment
+  type: chapter
+  URL: http://link.springer.com/10.1007/978-3-540-88682-2_32
+  volume: '5302'
+
 - id: ioffeForsy2001a
   abstract: >-
     Efﬁcient detection of objects in images is complicated by variations of
@@ -1297,6 +1447,23 @@ references:
     networks
   type: paper-conference
 
+- id: martiBenav1998a
+  author:
+    - family: Martinez
+      given: A.
+    - family: Benavente
+      given: Robert
+  citation-key: martiBenav1998a
+  container-title: Tech. Rep. 24 CVC Technical Report
+  container-title-short: Tech. Rep. 24 CVC Technical Report
+  issued:
+    - year: 1998
+      month: 1
+      day: 1
+  source: ResearchGate
+  title: The AR Face Database
+  type: article-journal
+
 - id: martiValst2016a
   abstract: >-
     In this chapter we consider the problem of automatic facial expression
@@ -1477,6 +1644,42 @@ references:
   type: article-journal
   URL: http://arxiv.org/abs/1901.10436
 
+- id: messeMatasEtAl2000a
+  abstract: >-
+    In this paper we describe the acquisition and content of a large multi-modal
+    database intended for training and testing of multi-modal verification
+    systems. The XM2VTSDB database offers synchronised video and speech data as
+    well as image sequences allowing multiple views of the face. It consists of
+    digital video recordings taken of 295 hundred subjects at one month
+    intervals taken over a period of five months. We also describe a protocol
+    for evaluating verification algorithms on the database. The database has
+    been made available to anyone on request to the University of Surrey through
+    http://www.ee.surrey.ac.uk/Research/VSSP/xm2vtsdb.
+  author:
+    - family: Messer
+      given: K.
+    - family: Matas
+      given: Jiri
+    - family: Kittler
+      given: J.
+    - family: Jonsson
+      given: K.
+    - family: Luettin
+      given: Juergen
+    - family: Maître
+      given: Gilbert
+  citation-key: messeMatasEtAl2000a
+  container-title: Proc. of Audio- and Video-Based Person Authentication
+  container-title-short: Proc. of Audio- and Video-Based Person Authentication
+  issued:
+    - year: 2000
+      month: 4
+      day: 7
+  source: ResearchGate
+  title: 'Xm2vtsdb: The extended m2vts database'
+  title-short: Xm2vtsdb
+  type: article-journal
+
 - id: mobm2008a
   accessed:
     - year: 2022
@@ -1576,6 +1779,55 @@ references:
   title-short: Pushing the Limits of Unconstrained Face Detection
   type: paper-conference
 
+- id: nickeHutch2002a
+  abstract: >-
+    Sum-of-squared-differences (SSD) based feature trackers have enjoyed growing
+    popularity in recent years, particularly in the field of visual servo
+    control of robotic manipulators. These trackers use SSD correlation measures
+    to locate target features in sequences of images. The results can then be
+    used to estimate the motion of objects in the scene, to infer the 3D
+    structure of the scene, or to control robot motions. The reliability of the
+    information provided by these trackers can be degraded by a variety of
+    factors, including changes in illumination, poor image contrast, occlusion
+    of features, or unmodeled changes in objects. This has led other researchers
+    to develop confidence measures that are used to either accept or reject
+    individual features that are located by the tracker. In this paper, we
+    derive quantitative measures for the spatial uncertainty of the results
+    provided by SSD-based feature trackers. Unlike previous confidence measures
+    that have been used only to accept or reject hypotheses, our new measure
+    allows the uncertainty associated with a feature to be used to weight its
+    influence on the overall tracking process. Specifically, we scale the SSD
+    correlation surface, fit a Gaussian distribution to this surface, and use
+    this distribution to estimate values for a covariance matrix. We illustrate
+    the efficacy of these measures by showing the performance of an example
+    object tracking system with and without the measures.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 23
+  author:
+    - family: Nickels
+      given: Kevin
+    - family: Hutchinson
+      given: Seth
+  citation-key: nickeHutch2002a
+  container-title: Image and Vision Computing
+  container-title-short: Image and Vision Computing
+  DOI: 10.1016/S0262-8856(01)00076-2
+  ISSN: 0262-8856
+  issue: '1'
+  issued:
+    - year: 2002
+      month: 1
+      day: 1
+  language: en
+  page: 47-58
+  source: ScienceDirect
+  title: Estimating uncertainty in SSD-based feature tracking
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0262885601000762
+  volume: '20'
+
 - id: nixonAguad2019a
   abstract: >-
     Feature Extraction for Image Processing and Computer Vision is an essential
@@ -1652,6 +1904,57 @@ references:
   title: The Summer Vision Project
   type: article-journal
   URL: https://dspace.mit.edu/handle/1721.1/6125
+
+- id: phillFlynnEtAl2005a
+  abstract: >-
+    Over the last couple of years, face recognition researchers have been
+    developing new techniques. These developments are being fueled by advances
+    in computer vision techniques, computer design, sensor design, and interest
+    in fielding face recognition systems. Such advances hold the promise of
+    reducing the error rate in face recognition systems by an order of magnitude
+    over Face Recognition Vendor Test (FRVT) 2002 results. The face recognition
+    grand challenge (FRGC) is designed to achieve this performance goal by
+    presenting to researchers a six-experiment challenge problem along with data
+    corpus of 50,000 images. The data consists of 3D scans and high resolution
+    still imagery taken under controlled and uncontrolled conditions. This paper
+    describes the challenge problem, data corpus, and presents baseline
+    performance and preliminary results on natural statistics of facial imagery.
+  author:
+    - family: Phillips
+      given: P.J.
+    - family: Flynn
+      given: P.J.
+    - family: Scruggs
+      given: T.
+    - family: Bowyer
+      given: K.W.
+    - family: Chang
+      given: Jin
+    - family: Hoffman
+      given: K.
+    - family: Marques
+      given: J.
+    - family: Min
+      given: Jaesik
+    - family: Worek
+      given: W.
+  citation-key: phillFlynnEtAl2005a
+  container-title: >-
+    2005 IEEE Computer Society Conference on Computer Vision and Pattern
+    Recognition (CVPR'05)
+  DOI: 10.1109/CVPR.2005.268
+  event: >-
+    2005 IEEE Computer Society Conference on Computer Vision and Pattern
+    Recognition (CVPR'05)
+  ISSN: 1063-6919
+  issued:
+    - year: 2005
+      month: 6
+  page: 947-954 vol. 1
+  source: IEEE Xplore
+  title: Overview of the face recognition grand challenge
+  type: paper-conference
+  volume: '1'
 
 - id: princ2012a
   author:
@@ -2064,6 +2367,48 @@ references:
   title-short: DeepFace
   type: paper-conference
 
+- id: tolaLepetEtAl2010a
+  abstract: >-
+    In this paper, we introduce a local image descriptor, DAISY, which is very
+    efficient to compute densely. We also present an EM-based algorithm to
+    compute dense depth and occlusion maps from wide-baseline image pairs using
+    this descriptor. This yields much better results in wide-baseline situations
+    than the pixel and correlation-based algorithms that are commonly used in
+    narrow-baseline stereo. Also, using a descriptor makes our algorithm robust
+    against many photometric and geometric transformations. Our descriptor is
+    inspired from earlier ones such as SIFT and GLOH but can be computed much
+    faster for our purposes. Unlike SURF, which can also be computed efficiently
+    at every pixel, it does not introduce artifacts that degrade the matching
+    performance when used densely. It is important to note that our approach is
+    the first algorithm that attempts to estimate dense depth maps from
+    wide-baseline image pairs, and we show that it is a good one at that with
+    many experiments for depth estimation accuracy, occlusion detection, and
+    comparing it against other descriptors on laser-scanned ground truth scenes.
+    We also tested our approach on a variety of indoor and outdoor scenes with
+    different photometric and geometric transformations and our experiments
+    support our claim to being robust against these.
+  author:
+    - family: Tola
+      given: Engin
+    - family: Lepetit
+      given: Vincent
+    - family: Fua
+      given: Pascal
+  citation-key: tolaLepetEtAl2010a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/TPAMI.2009.77
+  ISSN: 1939-3539
+  issue: '5'
+  issued:
+    - year: 2010
+      month: 5
+  page: 815-830
+  source: IEEE Xplore
+  title: 'DAISY: An Efficient Dense Descriptor Applied to Wide-Baseline Stereo'
+  title-short: DAISY
+  type: article-journal
+  volume: '32'
+
 - id: tzimiPanti2013a
   abstract: >-
     We describe a very simple framework for deriving the most-well known
@@ -2246,6 +2591,60 @@ references:
   URL: http://ieeexplore.ieee.org/document/990517/
   volume: '1'
 
+- id: wangLuceyEtAl2008a
+  abstract: >-
+    In this paper we present a new discriminative approach to achieve consistent
+    and efﬁcient tracking of non-rigid object motion, such as facial
+    expressions. By utilizing both spatial and temporal appearance coherence at
+    the patch level, the proposed approach can reduce ambiguity and increase
+    accuracy. Recent research demonstrates that feature based approaches, such
+    as constrained local models (CLMs), can achieve good performance in
+    non-rigid object alignment/tracking using local region descriptors and a
+    non-rigid shape prior. However, the matching performance of the learned
+    generic patch experts is susceptible to local appearance ambiguity. Since
+    there is no motion continuity constraint between neighboring frames of the
+    same sequence, the resultant object alignment might not be consistent from
+    frame to frame and the motion ﬁeld is not temporally smooth. In this paper,
+    we extend the CLM method into the spatio-temporal domain by enforcing the
+    appearance consistency constraint of each local patch between neighboring
+    frames. More importantly, we show that the global warp update can be
+    optimized jointly in an efﬁcient manner using convex quadratic ﬁtting.
+    Finally, we demonstrate that our approach receives improved performance for
+    the task of non-rigid facial motion tracking on the videos of clinical
+    patients.
+  accessed:
+    - year: 2022
+      month: 5
+      day: 23
+  author:
+    - family: Wang
+      given: Yang
+    - family: Lucey
+      given: Simon
+    - family: Cohn
+      given: Jeffrey F.
+    - family: Saragih
+      given: Jason
+  citation-key: wangLuceyEtAl2008a
+  container-title: >-
+    2008 8th IEEE International Conference on Automatic Face & Gesture
+    Recognition
+  DOI: 10.1109/AFGR.2008.4813409
+  event: Gesture Recognition (FG)
+  event-place: Amsterdam, Netherlands
+  ISBN: 978-1-4244-2153-4
+  issued:
+    - year: 2008
+      month: 9
+  language: en
+  page: 1-8
+  publisher: IEEE
+  publisher-place: Amsterdam, Netherlands
+  source: DOI.org (Crossref)
+  title: Non-rigid face tracking with local appearance consistency constraint
+  type: paper-conference
+  URL: https://ieeexplore.ieee.org/document/4813409
+
 - id: wuJi2019a
   abstract: >-
     The locations of the fiducial facial landmark points around facial
@@ -2334,6 +2733,45 @@ references:
   page: 532-539
   source: IEEE Xplore
   title: Supervised Descent Method and Its Applications to Face Alignment
+  type: paper-conference
+
+- id: yangPatra2013a
+  abstract: >-
+    In this paper we propose a method that utilises privileged information, that
+    is information that is available only at the training phase, in order to
+    train Regression Forests for facial feature detection. Our method chooses
+    the split functions at some randomly chose internal tree nodes according to
+    the information gain calculated from the privileged information, such as
+    head pose or gender. In this way the training patches arrive at leaves that
+    tend to have low variance both in displacements to facial points and in
+    privileged information. At each leaf node, we learn both the probability of
+    the privileged information and regression models conditioned on it. During
+    testing, the marginal probability of privileged information is estimated and
+    the facial feature locations are localised using the appropriate conditional
+    regression models. The proposed model is validated by comparing with very
+    recent methods on two challenging datasets, namely Labelled Faces in the
+    Wild and Labelled Face Parts in the Wild.
+  author:
+    - family: Yang
+      given: Heng
+    - family: Patras
+      given: Ioannis
+  citation-key: yangPatra2013a
+  container-title: >-
+    2013 10th IEEE International Conference and Workshops on Automatic Face and
+    Gesture Recognition (FG)
+  DOI: 10.1109/FG.2013.6553766
+  event: >-
+    2013 10th IEEE International Conference and Workshops on Automatic Face and
+    Gesture Recognition (FG)
+  issued:
+    - year: 2013
+      month: 4
+  page: 1-6
+  source: IEEE Xplore
+  title: >-
+    Privileged information-based conditional regression forest for facial
+    feature detection
   type: paper-conference
 
 - id: yanLeiEtAl2013a
@@ -2482,6 +2920,59 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S1077314215000727
   volume: '138'
 
+- id: zhangShanEtAl2014a
+  abstract: >-
+    Accurate face alignment is a vital prerequisite step for most face
+    perception tasks such as face recognition, facial expression analysis and
+    non-realistic face re-rendering. It can be formulated as the nonlinear
+    inference of the facial landmarks from the detected face region. Deep
+    network seems a good choice to model the nonlinearity, but it is nontrivial
+    to apply it directly. In this paper, instead of a straightforward
+    application of deep network, we propose a Coarse-to-Fine Auto-encoder
+    Networks (CFAN) approach, which cascades a few successive Stacked
+    Auto-encoder Networks (SANs). Specifically, the first SAN predicts the
+    landmarks quickly but accurately enough as a preliminary, by taking as input
+    a low-resolution version of the detected face holistically. The following
+    SANs then progressively refine the landmark by taking as input the local
+    features extracted around the current landmarks (output of the previous SAN)
+    with higher and higher resolution. Extensive experiments conducted on three
+    challenging datasets demonstrate that our CFAN outperforms the
+    state-of-the-art methods and performs in real-time(40+fps excluding face
+    detection on a desktop).
+  author:
+    - family: Zhang
+      given: Jie
+    - family: Shan
+      given: Shiguang
+    - family: Kan
+      given: Meina
+    - family: Chen
+      given: Xilin
+  citation-key: zhangShanEtAl2014a
+  collection-title: Lecture Notes in Computer Science
+  container-title: Computer Vision – ECCV 2014
+  DOI: 10.1007/978-3-319-10605-2_1
+  editor:
+    - family: Fleet
+      given: David
+    - family: Pajdla
+      given: Tomas
+    - family: Schiele
+      given: Bernt
+    - family: Tuytelaars
+      given: Tinne
+  event-place: Cham
+  ISBN: 978-3-319-10605-2
+  issued:
+    - year: 2014
+  language: en
+  page: 1-16
+  publisher: Springer International Publishing
+  publisher-place: Cham
+  source: Springer Link
+  title: Coarse-to-Fine Auto-Encoder Networks (CFAN) for Real-Time Face Alignment
+  type: paper-conference
+
 - id: zhouFanEtAl2013a
   abstract: >-
     We present a new approach to localize extensive facial landmarks with a
@@ -2536,6 +3027,47 @@ references:
     Network Cascade
   type: paper-conference
   URL: http://ieeexplore.ieee.org/document/6755923/
+
+- id: zhouGuptaEtAl2005a
+  abstract: >-
+    Existing methods for incorporating subspace model constraints in shape
+    tracking use only partial information from the measurements and model
+    distribution. We propose a unified framework for robust shape tracking,
+    optimally fusing heteroscedastic uncertainties or noise from measurement,
+    system dynamics, and a subspace model. The resulting nonorthogonal subspace
+    projection and fusion are natural extensions of the traditional model
+    constraint using orthogonal projection. We present two motion measurement
+    algorithms and introduce alternative solutions for measurement uncertainty
+    estimation. We build shape models offline from training data and exploit
+    information from the ground truth initialization online through a strong
+    model adaptation. Our framework is applied for tracking in echocardiograms
+    where the motion estimation errors are heteroscedastic in nature, each heart
+    has a distinct shape, and the relative motions of epicardial and endocardial
+    borders reveal crucial diagnostic features. The proposed method
+    significantly outperforms the existing shape-space-constrained tracking
+    algorithm. Due to the complete treatment of heteroscedastic uncertainties,
+    the strong model adaptation, and the coupled tracking of double-contours,
+    robust performance is observed even on the most challenging cases.
+  author:
+    - family: Zhou
+      given: Xiang Sean
+    - family: Gupta
+      given: A.
+    - family: Comaniciu
+      given: D.
+  citation-key: zhouGuptaEtAl2005a
+  container-title: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  DOI: 10.1109/TPAMI.2005.3
+  ISSN: 1939-3539
+  issue: '1'
+  issued:
+    - year: 2005
+      month: 1
+  page: 115-129
+  source: IEEE Xplore
+  title: An information fusion framework for robust shape tracking
+  type: article-journal
+  volume: '27'
 
 - id: zhuRaman2012a
   abstract: >-

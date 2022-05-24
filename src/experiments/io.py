@@ -1,8 +1,8 @@
-from operator import methodcaller
+from itertools import starmap
 from pathlib import Path
 
 import menpo
-from funcy import walk
+from more_itertools import side_effect
 
 DATA_PATH = Path(__file__).parent / ".." / "data"
 
@@ -30,34 +30,47 @@ class ResultsManager:
         self.path = DATA_PATH / "results"
         self.path.mkdir(parents=True, exist_ok=True)
 
-    def save_results(self, results, model_id, testset_id):
+    @staticmethod
+    def _clean_result(res):
+        res._image = None
+
+    def save_results(self, results, model_id: str, testset_id: str) -> None:
         menpo.io.export_pickle(
-            walk(methodcaller("to_result", pass_image=False), results),
+            list(side_effect(self._clean_result, results)),
             self._ids_to_path(model_id, testset_id),
             overwrite=True,
             protocol=4,
         )
 
-    def results_exist(self, model_id, testset_id):
+    def results_exist(self, model_id: str, testset_id: str) -> bool:
         return self._ids_to_path(model_id, testset_id).is_file()
 
-    def load_results(self, name):
-        return menpo.io.import_pickle(self._name_to_path(name))
+    def load_results(self, model_id: str, testset_id: str):
+        return menpo.io.import_pickle(self._ids_to_path(model_id, testset_id))
 
     def load_all_results(self):
-        return list(map(self.load_results, self.results_list()))
+        return list(starmap(self.load_results, self.results_list()))
 
-    def results_list(self):
+    def results_list(self) -> list[tuple[str, str]]:
         return sorted(
             [
-                p.name[: -len(".pkl.gz")]
+                self._path_to_ids(p)
                 for p in self.path.iterdir()
                 if p.suffixes == [".pkl", ".gz"]
             ]
         )
 
-    def _name_to_path(self, name):
+    def _name_to_path(self, name: str) -> Path:
         return self.path / f"{name}.pkl.gz"
 
-    def _ids_to_path(self, model_id, testset_id):
+    def _ids_to_path(self, model_id: str, testset_id: str) -> Path:
         return self._name_to_path(f"{model_id}_{testset_id}_results")
+
+    @staticmethod
+    def _path_to_ids(path: Path) -> tuple[str, str]:
+        parts = ResultsManager._stem(path).split("_")
+        return (parts[0], parts[1])
+
+    @staticmethod
+    def _stem(path: Path) -> str:
+        return path.name[: -len("_results.pkl.gz")]

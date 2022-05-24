@@ -23,7 +23,7 @@ secnumdepth: 1
 toc: true
 toc-depth: 1
 lof: true
-#lot: true
+lot: true
 
 # pandoc-crossref options
 autoEqnLabels: true

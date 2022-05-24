@@ -2,3 +2,4 @@
 \newcommand{\mat}[1]{\symbf{#1}}
 \newcommand{\tran}{^{\symsfup{T}}}
 \newcommand{\BigO}{\symcal{O}}
+\newcommand{\set}[1]{\symit{#1}}
