@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # Note that this has only been lightly tested. Hopefully if it breaks it still
-# servers as documentationo the required links.
+# servers as documentation on the required links.
 
 # IMPORTANT: this will expire after Sun, 15 May 2022 10:58:08 GMT. If this is
 # needed after it does, download one of the links below in a browser, fill in
@@ -30,5 +30,5 @@ done
 
 for set in "${sets[@]}"
 do
-  echo unzip $set -d $set
+  echo unzip "$set" -d "$set"
 done
