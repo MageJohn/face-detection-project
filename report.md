@@ -35,7 +35,7 @@ on sets of images collected in uncontrolled "in-the-wild" settings.
 
 Computer vision is an important area of research in computer science. There are
 uses for it in many areas, from helping robots and self driving cars understand
-their surroundings, to human computer interfaces that can recognise their users
+their surroundings, to human-computer interfaces that can recognise their users
 face or react to their movement.
 
 Many tasks in computer vision involve analysing images of an object in some way
@@ -212,7 +212,7 @@ or global) to landmark locations.
 
 This category is largely defined by AAMs. AAMs were first explored in the work
 of Edwards et al. [@edwarTayloEtAl1998a] in the late 90s. There was much
-interest at the time in interpretation by synthesis, a by which images are
+interest at the time in interpretation by synthesis, in which images are
 interpreted by synthesising a parametric version of the image.
 
 Briefly, AAMs work by combining a model of shape and a model of appearance. The
