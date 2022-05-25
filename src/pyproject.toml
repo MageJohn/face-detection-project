@@ -2,29 +2,25 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools]
+packages = ["experiments"]
+
 [project]
 name = "experiments"
 version = "0.0.1"
 dependencies = [
-  "dlib",
-  "funcy",
   "matplotlib",
   "numpy",
-  "nptyping",
-  "Pillow",
-  "types-Pillow",
+  "menpo @ git+https://github.com/MageJohn/menpo@eebb5ca8dab4bf18747d3dbd0954c9b54efc80fb",
+  "menpofit @ git+https://github.com/menpo/menpofit",
+  "more_itertools",
+  "click",
+  "tqdm",
+  "cyvlfeat",
 ]
 
 [project.scripts]
 experiments = "experiments.cli:cli"
-
-[tool.pyright]
-include = ["experiments"]
-typeCheckingMode = "strict"
-pythonPlatform = "Linux"
-pythonVersion = "3.10"
-venvPath = "."
-venv = "venv"
 
 [tool.mypy]
 python_executable = "./venv/bin/python"
