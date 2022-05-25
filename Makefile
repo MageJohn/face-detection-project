@@ -1,9 +1,9 @@
 PDC := pandoc
-PDC_FLAGS := --pdf-engine=xelatex -F pandoc-plot -F pandoc-crossref --citeproc
+PDC_FLAGS := --pdf-engine=xelatex -F pantable -F pandoc-plot -F pandoc-crossref --citeproc
 
 .PHONY: default clean
 
-default: report.pdf
+default: report.pdf reflections.pdf
 
 COMMON_PREREQS := report.md macros.md metadata.yaml bibliography.yaml ieee.csl images/gnuplot/*
 
@@ -12,6 +12,9 @@ report.pdf: ${COMMON_PREREQS}
 
 report.tex: ${COMMON_PREREQS}
 	${PDC} ${PDC_FLAGS} metadata.yaml macros.md $< -s -o $@
+
+reflections.pdf: reflections.md
+	${PDC} --pdf-engine=xelatex $< -s -o $@
 
 ieee.csl:
 	wget https://www.zotero.org/styles/ieee -O $@

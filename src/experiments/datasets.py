@@ -1,7 +1,7 @@
 from functools import reduce
 from operator import add
 from pathlib import Path
-from typing import Iterable, Union
+from typing import Iterable, Union, cast
 
 import menpo
 
@@ -15,18 +15,10 @@ testsets: dict[str, Union[str, list[str]]] = {
     "lfpw": "lfpw/testset",
     "300w-indoor": "300w_cropped/01_Indoor",
     "300w-outdoor": "300w_cropped/02_Outdoor",
-    "300w": ["300w_cropped/01_Indoor", "300w_cropped/02_Outdoor"],
+    "300w": ["300w-indoor", "300w-outdoor"],
     "helen": "helen/testset",
     "helen_train": "helen/trainset",
     "afw": "afw",
-    "all": [
-        "lfpw/testset",
-        "300W/01_Indoor",
-        "300W/02_Outdoor",
-        "afw",
-        "helen/testset",
-        "helen/trainset",
-    ],
 }
 
 trainsets = {""}
@@ -67,4 +59,7 @@ def import_trainset():
 
 
 def import_testset(testset_id: str):
+    paths = testsets[testset_id]
+    if isinstance(paths, list):
+        paths = [cast(str, testsets[id]) for id in paths]
     return import_assets(testsets[testset_id])

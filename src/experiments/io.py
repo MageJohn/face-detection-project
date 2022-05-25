@@ -1,8 +1,12 @@
+from functools import reduce
 from itertools import starmap
+from operator import add
 from pathlib import Path
 
 import menpo
 from more_itertools import side_effect
+
+from .datasets import testsets
 
 DATA_PATH = Path(__file__).parent / ".." / "data"
 
@@ -46,6 +50,10 @@ class ResultsManager:
         return self._ids_to_path(model_id, testset_id).is_file()
 
     def load_results(self, model_id: str, testset_id: str):
+        if isinstance(testsets[testset_id], list):
+            return reduce(
+                add, (self.load_results(model_id, tid) for tid in testsets[testset_id])
+            )
         return menpo.io.import_pickle(self._ids_to_path(model_id, testset_id))
 
     def load_all_results(self):

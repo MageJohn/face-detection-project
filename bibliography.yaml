@@ -179,6 +179,44 @@ references:
   URL: >-
     https://openaccess.thecvf.com/content_cvpr_2013/html/Asthana_Robust_Discriminative_Response_2013_CVPR_paper.html
 
+- id: bakerGrossEtAla
+  abstract: >-
+    Since the Lucas-Kanade algorithm was proposed in 1981 image alignment has
+    become one of the most widely used techniques in computer vision.
+    Applications range from optical ﬂow, tracking, and layered motion, to mosaic
+    construction, medical image registration, and face coding. Numerous
+    algorithms have been proposed and a variety of extensions have been made to
+    the original formulation. We present an overview of image alignment,
+    describing most of the algorithms in a consistent framework. We concentrate
+    on the inverse compositional algorithm, an efﬁcient algorithm that we
+    recently proposed. We examine which of the extensions to the Lucas-Kanade
+    algorithm can be used with the inverse compositional algorithm without any
+    signiﬁcant loss of efﬁciency, and which cannot. In this paper, Part 3 in a
+    series of papers, we cover the extension of image alignment to allow linear
+    appearance variation. We ﬁrst consider linear appearance variation when the
+    error function is the Euclidean L2 norm. We describe three different
+    algorithms, the simultaneous, project out, and normalization inverse
+    compositional algorithms, and empirically compare them. Afterwards we
+    consider the combination of linear appearance variation with the robust
+    error functions described in Part 2 of this series. We ﬁrst derive robust
+    versions of the simultaneous and normalization algorithms. Since both of
+    these algorithms are very inefﬁcient, as in Part 2 we derive efﬁcient
+    approximations based on spatial coherence. We end with an empirical
+    evaluation of the robust algorithms.
+  author:
+    - family: Baker
+      given: Simon
+    - family: Gross
+      given: Ralph
+    - family: Matthews
+      given: Iain
+  citation-key: bakerGrossEtAla
+  language: en
+  page: '51'
+  source: Zotero
+  title: 'Lucas-Kanade 20 Years On: A Unifying Framework: Part 3'
+  type: article-journal
+
 - id: baltrRobinEtAl2013a
   abstract: >-
     Facial feature detection algorithms have seen great progress over the recent
@@ -1403,6 +1441,39 @@ references:
   title: Interactive Facial Feature Localization
   type: paper-conference
 
+- id: lowe1999a
+  abstract: >-
+    An object recognition system has been developed that uses a new class of
+    local image features. The features are invariant to image scaling,
+    translation, and rotation, and partially invariant to illumination changes
+    and affine or 3D projection. These features share similar properties with
+    neurons in inferior temporal cortex that are used for object recognition in
+    primate vision. Features are efficiently detected through a staged filtering
+    approach that identifies stable points in scale space. Image keys are
+    created that allow for local geometric deformations by representing blurred
+    image gradients in multiple orientation planes and at multiple scales. The
+    keys are used as input to a nearest neighbor indexing method that identifies
+    candidate object matches. Final verification of each match is achieved by
+    finding a low residual least squares solution for the unknown model
+    parameters. Experimental results show that robust object recognition can be
+    achieved in cluttered partially occluded images with a computation time of
+    under 2 seconds.
+  author:
+    - family: Lowe
+      given: D.G.
+  citation-key: lowe1999a
+  container-title: Proceedings of the Seventh IEEE International Conference on Computer Vision
+  DOI: 10.1109/ICCV.1999.790410
+  event: Proceedings of the Seventh IEEE International Conference on Computer Vision
+  issued:
+    - year: 1999
+      month: 9
+  page: 1150-1157 vol.2
+  source: IEEE Xplore
+  title: Object recognition from local scale-invariant features
+  type: paper-conference
+  volume: '2'
+
 - id: luoLiEtAl2016a
   abstract: >-
     We study characteristics of receptive fields of units in deep convolutional
@@ -2538,6 +2609,19 @@ references:
   title: Subspace Learning from Image Gradient Orientations
   type: article-journal
   volume: '34'
+
+- id: vedaldi08vlfeat
+  author:
+    - family: Vedaldi
+      given: A.
+    - family: Fulkerson
+      given: B.
+  citation-key: vedaldi08vlfeat
+  issued:
+    - year: 2008
+  title: 'VLFeat: An open and portable library of computer vision algorithms'
+  type: document
+  URL: http://www.vlfeat.org/
 
 - id: violaJones2001a
   abstract: >-

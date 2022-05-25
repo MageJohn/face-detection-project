@@ -1,7 +1,7 @@
 ---
-title: Using robust features when training an AAM model with in-the-wild data
+title: Face fitting with robust image feature descriptors
 author: "Yuri Pieters"
-date: '`DRAFT - \today`{=latex}'
+date: '`\today`{=latex}'
 
 header-includes:
   - |
@@ -27,38 +27,75 @@ header-includes:
 
 # Executive Summary {.unnumbered}
 
-*the following is an outline*
+The aim of this computer vision project was to evaluate a technique for
+analysing images of things such as faces. The technique uses a statistical model
+of shape and appearance called an Active Appearance Model (AAM). The model was
+combined with densely sampled robust feature descriptors and trained and tested
+on sets of images collected in uncontrolled "in-the-wild" settings.
 
-Aim: The goal of this work was to understand, compare, and evaluate a range of
-different techniques used for landmark localisation on faces. In this report I
-present the models I chose to evaluate, the datasets I evaluated them against,
-and the results of the evaluation. I also present a review of the field overall,
-which motivates the particular models and datasets I choose.
+Computer vision is an important area of research in computer science. There are
+uses for it in many areas, from helping robots and self driving cars understand
+their surroundings, to human computer interfaces that can recognise their users
+face or react to their movement.
 
-Motivation:
+Many tasks in computer vision involve analysing images of an object in some way
+to infer information about it, like taking an image of a face and inferring
+where the person is looking. A common step in tasks such as this is getting the
+shape of the object in question by fitting a set of landmark points to it. The
+landmark points mark key parts of the object, which captures the shape and
+allows later steps to either use the shape as part of their algorithm, or to
+factor out the effect of the shape.
 
-- Computer vision is an important part of many topics at the bleeding edge of
-  computer science: robotics, self driving cars, human computer interfaces.
-- Computer vision techniques aren't one size fits all. To pick between them
-  requires understanding of the differences.
-- Recognition of faces is an important and frequently used application of
-  computer vision.
-- Therefore understanding and picking between face recognition algorithms is
-  important.
+There are several approaches to fitting a set of landmarks like this. Many
+approaches learn from training images how to map image appearance to landmark
+locations directly. Others use a statistical model of shape called a deformable
+shape model, which they then fit to the image. An AAM is of this second type.
 
-Methods: I evaluated the algorithms by running them on the same set of data, and
-calculating how closely they reproduced the true landmark points.
+AAM is a relatively simple and straightforward method of deformable model
+fitting. It is a generative model, which means it generates instances of the
+thing it models. An AAM is fitted to an new image by minimising the difference
+between this generated image and the actual one.
 
-Results: I found that ....
+Image features are points of interest in an image, from the perspective of an
+computer vision algorithm at least. A feature descriptor is a measurement
+extracted from the image at the location of the feature that summarises some of
+the properties of the image in the neighbourhood at that location. A robust
+feature descriptor tries to not be affected by things like changes in
+illumination and scale. Features can be sampled densely, meaning that a
+descriptor is computed at every, or nearly every, pixel in the image. 
 
-Social and ethical issues of face detection and landmarking:
+A recent paper [@tzimiPanti2013a] introduced a fast method for fitting an AAM to
+an image, and tested the method by training an AAM on data collected in-the-wild.
+Their model was very simple, but showed very good results. In this work the goal
+is to extend their model by combining the model with robust image features.
 
-- Human faces have a huge variety
-- Everyone has a right to be able to use the technology that may be supported by
-  computer vision
-- Therefore both the computer vision techniques and actual implementation of
-  those techniques (e.g. the actual training images used) should be developed
-  with the full diversity of humans in mind.
+The image features tested were Image Gradient Orientations (IGO), Histogram of
+Orientated Gradients (HOG), Scale Invariant Feature Transform (SIFT), and DAISY.
+These were compared against an AAM using the raw pixel intensity values.
+
+Each model was evaluated on the task of fitting landmarks to images of human
+faces, with the accuracy of the models quantified by measuring the how closely
+the fitted shape reproduced the true landmark points.
+
+The feature that produced the best results was HOG, followed by SIFT and DAISY.
+IGO showed a good step up in performance from the raw intensity values though,
+while being fast compared to the other methods.
+
+This project uses faces as the subject for the models. This does come with some
+potential social and ethical concerns. The datasets used are popular ones in
+computer vision research and consist of publicly available images, which avoids
+legal issues.
+
+However any face analysis software should be aware of diversity. Human faces
+have a huge variety, and everyone has a right to be able to use the technology
+that may be supported by such face analysis software. Therefore both the
+computer vision techniques and actual implementation of those techniques (e.g.
+the actual training images used) should be developed with the full diversity of
+humans in mind.
+
+While the datasets used do not come with statistics of their diversity, manual
+inspection of images shows what appears to be a good cross section of skin
+colors, ages, and genders.
 
 
 # Introduction
@@ -66,10 +103,10 @@ Social and ethical issues of face detection and landmarking:
 This report details an investigation into using Active Appearance Models (AAM),
 a well established framework in computer vision for the task of fitting a set of
 landmarks to images of objects with variable shape and appearance (human faces
-being the classic example). State of the art techniques for image
-pre-processing and non-linear function optimisation, along with modern datasets
-of images collected in the wild, are used in the AAM framework, and the results
-are compared against other recent solutions to the same problem.
+being the classic example). State of the art techniques for image pre-processing
+and non-linear function optimisation, along with modern datasets of images
+collected in the wild, are used in the AAM framework, and the results are
+compared against other recent solutions to the same problem.
 
 Computer vision is a field of computer science that deals with getting computers
 to "see". The subject has a long history, dating back to the 1960s when it was
@@ -81,19 +118,19 @@ solutions to computer vision problems [@forsyPonce2012a]. Fields where computer
 vision has been applied include include medical imaging, robotics,
 human-computer interaction, security, manufacturing, and more [@szeli2022a].
 
-A deformable shape model in computer vision is used to describe the shape of
-objects in images whose shape varies in a non-rigid manner. The shape is
-described as a set of landmark points marking key parts of the object, like in
-[@fig:landmarkExample]. Non-rigid variation means that in different instances of
-the object the points may be in different positions relative to each other, as
-opposed to only being different by scaling, rotation, etc. This variation can be
-due to the non-rigid nature of the object themselves, but could also just
-represent variation between different objects of the same class. Human faces,
-one of the most common examples used, vary both non-rigidly themselves and
-between instances. Bones, on the other hand, also vary non-rigidly between
-instances, but each instance is of course rigid on its own. Bones have been used
-as examples for tasks involving deformable shape models, where they are useful
-for analysis of medical imagery [@stegm2000a]; however in this work we focus on
+Fitting a set of landmarks to objects in an image is a way to describe the shape
+of objects. Such a set of landmarks can  be seen in [@fig:landmarkExample].
+Landmarking like this is a good way to capture non-rigid variation in object
+shape. Non-rigid variation means that in different instances of the object the
+points may be in different positions relative to each other, as opposed to only
+being different by scaling, rotation, etc. This variation can be due to the
+non-rigid nature of the object themselves, but could also just represent
+variation between different objects of the same class. Human faces, one of the
+most common examples used, vary both non-rigidly themselves and between
+instances. Bones, on the other hand, also vary non-rigidly between instances,
+but each instance is of course rigid on its own. Bones have been used as
+examples for tasks involving deformable shape models, where they are useful for
+analysis of medical imagery [@stegm2000a]; however in this work we focus on
 human faces. This is due to the general popularity of faces for computer vision,
 which has resulted in many high-quality datasets being made available
 [@belhuJacobEtAl2011a; @leBrandEtAl2012a; @zhuRaman2012a; @sagonTzimiEtAl2013b].
@@ -112,7 +149,8 @@ Examples include Constrained Local Models [@cristCoote2006a; @saragLuceyEtAl2011
 @kazemSulli2014a; @xiongDeLala2013a; @zhangShanEtAl2014a], and not
 [@dantoGallEtAl2012a; @yangPatra2013a]. These will be further discussed in
 [@sec:other-landmarking-methods] in this report. One method that stands
-out for it's relative simplicity, while still achieving good results, is AAM.
+out for it's relative simplicity, while still achieving good results, is Active
+Appearance Models.
 
 AAMs are generative statistical models of appearance and shape. They
 parametrically describe the variations in appearance and shape seen in objects,
@@ -124,106 +162,26 @@ head pose from the shape, or gender from the appearance.
 
 ## Motivation, aims, and objectives
 
-Recent research has focused on deep learning methods for solving problems of
-deformable shape model fitting and object recognition in general. There has been
-great success in this area, in many cases pushing the state of the art.
-Traditional statistical models have thus fallen by the wayside to some extent.
-
-However these models do have advantages over deep learning methods that should
-not be forgotten. Deep learning is still very computationally intensive, for
-example, requiring specialised hardware such as GPUs or heavy code optimisation
-to use effectively. In many cases traditional techniques are fast enough to run
-on ordinary CPUs, while still achieving excellent performance.
-
-Deep learning can also sometimes be treated as a black box, producing good
-results that are difficult to explain. Traditional techniques on the other hand
-are built on an understanding of every step, allowing a fuller view of how they
-do their thing.
-
 This work is in large part inspired by the work in [@tzimiPanti2013a], which
 introduced a new AAM fitting algorithm they named Fast-SIC, but has since been
 termed alternating inverse-compositional (AIC). They showed that, using this
 algorithm to fit an AAM trained on in-the-wild data, state-of-the art
 performance could be achieved on generic face fitting problems, even without the
-use of robust features.
+use of robust feature descriptors.
 
-The aim of this work is to evaluate AAMs that do use robust features against the
-current state-of-the-art deep learning methods that require GPUs to use. The
-result should illuminate the state of deep learning methods and reveal what is
-possible relatively less computationally expensive statistical methods.
-
-To do this, AAMs using several different dense image features will be compared
-against off-the-shelf deep learning algorithms in the task of generic face
-fitting.
-
-<!--
-
-One of the more popular subjects for computer vision is human faces. Humans have
-an intuitive understanding of the human face from a very young age
-([@fig:baby]), and we quickly learn to interpret the faces of others to tell us
-who they are, where they are looking, what they are feeling, and more; the face
-is a rich form of non-verbal communication [@kanwiYovel2009a]. As with other
-tasks in computer vision however, trying to infer something as subtle as emotion
-from a collection of pixels is a non-trivial task. The solution, of course, is
-to pre-process the data somehow to extract only relevant features
-[@martiValst2016a]. This breaks a difficult problem (such analysing facial
-expressions), into more manageable sub-problems, which can be tackled
-separately. One such pre-processing technique that turns out to be useful for
-multiple different tasks is facial landmarking [@martiValst2016a;
-@murphTrive2009a].
-
-![An expert face analyser[^babyref]](./images/sleeping_baby.jpg){#fig:baby
-width=60%}
-
-[^babyref]: "[Sleeping Baby](https://www.flickr.com/photos/biblicone/2533285432/)"
-([CC BY-NC-SA 2.0](https://creativecommons.org/licenses/by-nc-sa/2.0/)) by
-bikesandwich on Flickr
-
-
-The goal of facial landmarking is to fit a parameterised shape model to an image
-of a face such that its points correspond to consistent locations on the face
-[@saragLuceyEtAl2011a]. [@Fig:landmarkExample] shows an example of a face fitted
-with such a model. Landmarks points may either correspond to well defined facial
-part, such as the tip of the nose or the corner of the eye, or they may be part
-of a group marking a boundary, such as the edge of the face. The exact
-configuration and meaning of the landmark points can vary between datasets used,
-and several different configurations are in use. One of the most popular however
-is the 68 point annotation used originally by the Multi-PIE dataset
-[@grossMatthEtAl2010a].
-
-```{#fig:landmarkExample .matplotlib dpi=160 tight_bbox=true width=70%
-    caption="Example of a face from the 300W face dataset [@sagonAntonEtAl2016a]
-    with a set of landmark points annotated."
-}
-import menpo
-img = menpo.io.import_image('Datasets/300w_cropped/01_Indoor/indoor_225.png')
-img.landmarks['PTS'] = menpo.landmark.face_ibug_68_to_face_ibug_68(img.landmarks['PTS'])
-img.crop_to_landmarks_proportion(0.2).view_landmarks(render_lines=True, marker_size=5)
-```
-
-Facial landmarking can be used to as part of the process of solving more
-difficult facial analysis problems in different ways. Most obviously, landmarks
-can be used directly as input data for a model. A model for head pose estimation
-for example may not actually need most of the information encoded in the image
-pixels; the pose of the head can be inferred from the relative positions of the
-various facial features, which is what the landmarks encode [@murphTrive2009a].
-Alternatively, the landmarks can be used as part of additional pre-processing
-steps such as registration and feature extraction [@martiValst2016a]. In
-registration the idea is to remove variation in rotation and scale; this can be
-done by first computing a transformation that places the landmarks onto a
-predefined reference shape, and then applying the same transformation to the
-image itself. In feature extraction the goal is to compute summaries of the
-image data that keeps relevant information while getting rid of nuisance
-factors. Landmarks can help localise the features, so that each feature
-represents the same part of the face in every example. Features can also be
-computed directly on the landmarks themselves, encoding geometric relationships
-between different parts of the face.
--->
-
+The aim of this work is to evaluate the performance of AAMs in a similar
+situation that do use robust features. A set of such features will be selected
+along with a sets of images collected in-the-wild, and the results will be
+evaluated to give insight into the power of these descriptors and AAM itself.
 
 ## Report overview
 
-The structure of the rest of this report is as follows. *to be written once finished*
+The structure of the rest of this report is as follows. In
+[@sec:literature-review] a review of related works and relevant background is
+provided. In [@sec:methodology-and-implementation] the experimental methodology
+and implementation details are given; this is followed by
+[@sec:results-and-analysis] where the results of the experiments are presented.
+Finally, in [@sec:conclusion] the report is concluded.
 
 # Literature review
 
@@ -232,23 +190,23 @@ fitting and prior work on AAMs.
 
 We start with an overview of solutions to the deformable model fitting problem,
 placing AAM into context. We then present a description of the basic formulation
-of an AAM, setting the stage for a review of various enhancements that have
-been proposed. Finally, because we compare AAMs with different image features we
-we review these.
+of an AAM, setting the stage for a review of various enhancements that have been
+proposed. Finally, because we compare AAMs with different image feature
+descriptors we review these.
 
 ## Other landmarking methods
 
 There have been many approaches taken to the problem of landmark fitting, but
 they can largely be divided into three categories [@wuJi2019a]: *holistic
-methods*, *Constrained Local Models*, and *regression based methods*. The
-categories are based on how the facial appearance and facial shape patterns are
-modelled and related. For holistic methods, the main example is AAM; the
-category is named because the holistic appearance is used to fit the landmarks.
-Constrained Local Model (CLM) approaches train a set of independent models for
-each of the facial landmarks, but constrain the locations of the landmarks based
-on a global model of the face shape. Lastly, the regression based methods do not
-explicitly model the global face shape at all, instead directly relating image
-data (either local or global) to landmark locations.
+methods*, *Constrained Local Model (CLM) methods*, and *regression based
+methods*. The categories are based on how the facial appearance and facial shape
+patterns are modelled and related. For holistic methods, the main example is
+AAM; the category is named because the holistic appearance is used to fit the
+landmarks. CLM methods train a set of independent models for each of the facial
+landmarks, but constrain the locations of the landmarks based on a global model
+of the face shape. Lastly, the regression based methods do not explicitly model
+the global face shape at all, instead directly relating image data (either local
+or global) to landmark locations.
 
 ### Holistic methods
 
@@ -281,12 +239,12 @@ disambiguate the possible locations for each landmark by constraining their
 positions to ones that make sense, e.g. are anatomically correct in the case of
 fitting faces. [@Fig:clm] illustrates the model.
 
-![An illustration of CLM and its components, copied from [@saragLuceyEtAl2011a].
-The left shows how each local model is run on an image patch taken from around a
-landmark point, producing a response map. The right illustrates the face shape
-model. They are combined during optimisation (centre) by picking landmark
-locations that are likely in the local models and fit the face shape
-model.](./images/saragih_clm.png){#fig:clm}
+![An illustration of CLM and its components. The left shows how each local model
+is run on an image patch taken from around a landmark point, producing a
+response map. The right illustrates the face shape model. They are combined
+during optimisation (centre) by picking landmark locations that are likely in
+the local models and fit the face shape model. Source: Adapted from
+[@saragLuceyEtAl2011a]](./images/saragih_clm.png){#fig:clm}
 
 There have been many variations on CLM in the literature. They typically vary in
 local appearance model, face shape model, and optimisation method [@wuJi2019a]. 
@@ -308,11 +266,11 @@ the shape constraint.
 ## Active Appearance Model design
 
 An AAM is defined by the shape model, the appearance model, an image warping
-algorithm, and the fitting algorithm. Closely related butt not strictly part of
+algorithm, and the fitting algorithm. Closely related but not strictly part of
 the AAM is the choice of image feature. This is typically applied as a
 pre-processing step, and while it can have a great effect on performance, it
 doesn't typically affect the structure of the model. Image features are examined
-in [@sec:image-features].
+in [@sec:image-feature-descriptors].
 
 The shape and appearance model both have a similar structure:
 
@@ -322,35 +280,35 @@ $$
 $$
 
 They are both modeled as a mean vector ($\bar{\vec{s}}$, $\bar{\vec{a}}$) added
-to a linear combination of of basis vectors ($\mat{\Phi}_{\vec{s}}$,
+to a linear combination of basis vectors ($\mat{\Phi}_{\vec{s}}$,
 $\mat{\Phi}_{\vec{s}}$) which are weighted by a parameter ($\vec{p}_{\vec{s}}$,
-$\vec{p}_{\vec{s}}$). This structure comes from both being constructed with
-principle component analysis (PCA), a technique for expressing high dimensional
-data in fewer dimensions. This throws away some of the variability in the
-original data, but this is considered to be the variability due to noise. The
+$\vec{p}_{\vec{s}}$). This structure comes from both of them being constructed
+with principle component analysis (PCA), a technique for expressing high
+dimensional data in fewer dimensions. This throws away some of the variability
+in the original data, but this is considered to be variability due to noise. The
 basis vectors $\mat{\Phi}$ are a subset of the eigenvectors of the co-variance
 matrix of the data.
 
 The shape model is known as a point distribution model (PDM)
 [@cooteTayloEtAl1992a]. It is learned from a set of training images annotated
 with a set of landmark points. The landmark points have both global position
-variation, due objects being in different parts of the images, and shape
-variation duo to non-rigid variation of the objects. This is too complex to
+variation, due to objects being in different parts of the images, and shape
+variation due to non-rigid variation of the objects. This is too complex to
 learn directly, so first the global variation is removed. For this an algorithm
-called generalised Procrustes analysis is used, which iteratively work out how
-to rotate, translate, and scale each shape so to be nearly on top of each other.
-With this the mean shape $\bar{\vec{s}}$ and the covariance $\mat{\Sigma}$ of
-the points can be calculated, and finding the eigendecomposition of
-$\mat{\Sigma}$ gives the basis vectors. The subset of eigenvectors to keep is a
-trade-off between accuracy and speed, as more vectors means more parameters to
-be found when fitting, but fewer and there may not be enough to accurately
-capture the variation in the object. In this work 15 eigenvectors are kept for
-each model.
+called generalised Procrustes analysis is used [@princ2012a], which iteratively
+works out how to rotate, translate, and scale each shape so as to be nearly on
+top of each other. With this the mean shape $\bar{\vec{s}}$ and the covariance
+$\mat{\Sigma}$ of the points can be calculated, and finding the
+eigendecomposition of $\mat{\Sigma}$ gives the basis vectors. The subset of
+eigenvectors to keep is a trade-off between accuracy and speed, as more vectors
+mean more parameters to be found when fitting, but fewer means there may not be
+enough to accurately capture the variation in the object. In this work 15
+eigenvectors are kept for each model.
 
 To learn the appearance model the images must be warped to a reference shape,
-typically the mean shape $\bar{\vec{s}}$. This produces a shape free image
+typically the mean shape $\bar{\vec{s}}$. This produces a shape-free image
 patch, which allows appearance to be learned in the absence of shape. PCA is
-then applied again to the shape free patches to find $\mat{\Phi}_{\vec{a}}$.
+then applied again to the shape-free patches to find $\mat{\Phi}_{\vec{a}}$.
 
 The images are warped by a piecewise affine warp, which is the most common
 choice. It requires the points to be triangulated, as in
@@ -378,19 +336,18 @@ error function.
 
 The limiting factor for AAMs is largely speed. The appearance model is typically
 high dimensional, in the order of 10^1^--10^2^ principle components are typical,
-especially with multichannel images (or with multi-channel features as in this
+especially with multichannel images (or with multi-channel image descriptors as in this
 work). Traditional Gauss-Newton optimisation requires computing and inverting
 large Hessian matrices to find the gradient and this is computationally
 expensive. Advances in AAMs then have mostly focused on this optimisation step.
 
 In the original work on AAMs, computing the parameter update analytically was
-prohibitive on the hardware of the time \marginpar{\raggedright Justify this with more
-careful reading of the literature}. Therefore they used an additional step
+prohibitive on the hardware of the time. Therefore they used an additional step
 during learning to learn a linear approximation of the update step based on the
-image. The idea was to that the gradient direction on the training images would
-generalise to unseen images. There several iterations of this idea, improving
-the model for the parameter update. However, these methods trade away a fair bit
-of accuracy, robustness, and generalisability for their speed.
+image. The idea was that the gradient direction on the training images would
+generalise to unseen images. There are several iterations of this idea,
+improving the model for the parameter update. However, these methods trade away
+a fair bit of accuracy, robustness, and generalisability for their speed.
 
 The other form of improvement for fitting was in the analytical methods for
 computing the update, along with increasing computing power making expensive
@@ -401,14 +358,12 @@ variation by "projecting-out" the appearance variation, working a subspace that
 is the orthogonal complement of the appearance variation as a result
 [@antonAlaboEtAl2015a]. This algorithm is very fast, but not very robust,
 sacrificing accuracy for speed. It tends to break down when fitted to an image
-with high appearance variation or outliers.
+with high appearance variation or outliers. There is also simultaneous inverse
+composition (SIC), which is a slow but accurate algorithm [@bakerGrossEtAla].
 
-There is also simultaneous inverse composition (SIC), which is a slow but
-accurate algorithm. A more recent algorithm, alternating inverse-composition
-(AIC), has been shown [@tzimiPanti2013a] to be equivalent to SIC (produces the
-same update step) but much faster. While not quite as fast as POIC, AIC is much
-more accurate. As AIC is the algorithm used in this work, it is detailed below
-in [@sec:inference-algorithm].
+More recent algorithm, the alternating inverse-composition (AIC), has been shown
+[@tzimiPanti2013a] to be equivalent to SIC (produces the same update step) but
+much faster. While not quite as fast as POIC, AIC is much more accurate.
 
 Table: Algorithmic complexity for some of the main AAM inference algorithms
 [@antonAlaboEtAl2015a]. {#tbl:algorithmicComplexity}
@@ -423,32 +378,31 @@ In [@tbl:algorithmicComplexity], $N_{\symup{S}}$ is the number of shape
 components, $N_{\symup{A}}$ is the number of appearance components, and
 $L_{\symup{A}}$ is the length of the appearance vector.
 
-## Image features
+## Image feature descriptors
 
-An image feature is a measurement extracted from an image that attempts to
-describe the contents. By this definition, the pixel intensity values themselves
-are image features, though typically weak ones. The term feature makes no
+An image feature is a point of interest in an image, and a feature descriptor is
+a measurement extracted from an image that attempts to describe the contents at
+the feature. By this definition, the pixel intensity values themselves are
+feature descriptors, though typically weak ones. The term descriptor makes no
 guarantees of strength or usefulness. Looked at from another angle, the fitted
-AAM instance is itself an image feature. It is an attempt to describe the image
-contents after all. Indeed, higher level algorithms may treat AAM as a black box
-feature extraction algorithm.
+AAM instance is itself an feature descriptor. It is an attempt to describe the
+image contents at a point of interest such as a face, after all. Indeed, higher
+level algorithms may treat AAM as a black box feature extraction algorithm.
 
 For the purposes of AAM itself however, image features have a few requirements.
-There are features such as SURF which summarise the properties of a few
-subregions of the image; for AAM this isn't useful as the shape of the image is
-lost. The feature must preserve shape. Some features summarise an image in a
+Some feature extraction algorithms for example only produce a sparse set of
+features; for AAM this isn't useful as the shape of the object is lost. The
+feature set must preserve shape. Some feature algorithms summarise an image in a
 regular grid of sub-regions. The default scale-invariant feature transform
 (SIFT) and histogram of oriented gradients (HOG) features are like this. These
 preserve shape, but lose spacial accuracy, as points can only be localised to
-the area of the sub-region. Therefore the feature must be dense, i.e. computed
-at every pixel.
+the area of the sub-region. Therefore the feature set must be dense, i.e.
+computed at every pixel.
 
-Features tested were
-
-- Image Gradient Orientation (IGO)
-- Dense HOG
-- Dense SIFT
-- DAISY
+All the feature extraction algorithms used are based on image gradients. The
+gradient is high at edges in an image, where pixel values change abruptly. By
+doing this they aim to introduce some invariance to things like illumination
+changes.
 
 A dense feature image is computed by applying a feature extraction function to
 an image. The function produces a vector of values for each pixel, turning a
@@ -458,7 +412,30 @@ feature vector sizes respectively. The value of $C$ varies between features and
 can be affected by parameters for the feature function.
 
 In the following sub-sections the 4 image features selected for this work are
-examined.
+examined. They are Image Gradient Orientation, Histogram of Gradients, Dense
+Scale Invariant Feature Transform, and DAISY.
+
+Table: Feature extraction algorithm parameter defaults
+
+-----------------------------------------------------
+Feature type  Parameter values              Channels
+------------- ----------------------------- ---------
+IGO                                         2
+
+HOG           `\(N_{\mathup{bins}} = 9\),   36
+              \(N_{\mathup{block}} = 2\),
+              \(\mathup{cell} = 8\times8\)
+              `{=latex}
+
+DSIFT         `\(N_{\mathup{bins}} = 9\),   36
+              \(N_{\mathup{block}} = 2\),
+              \(\mathup{cell} = 8\times8\)
+              `{=latex}
+
+DAISY         `\(Q = 2\), \(T = 4\),        36
+              \(H = 4\)
+              `{=latex}
+-----------------------------------------------------
 
 ### Image Gradient Orientation
 
@@ -478,27 +455,60 @@ and Sobel filters.
 ### Histogram of Oriented Gradients
 
 HOG is a feature introduced in [@dalalTrigg2005a]. It uses gradient orientations
-similarly to IGO, but instead of each pixel only capturing the local gradient a
-histogram of the orientations in the local area is produced.
+similarly to IGO, but instead of each descriptor only capturing the local
+gradient, a histogram of the orientations in the local area is produced. In the
+original use of HOG a descriptor was extracted in a grid with a lower resolution
+than the image. As discussed above however, this loses spacial accuracy for the
+AAM, and so here a descriptor is computed for every pixel in the input image, as
+in [@antonAlaboEtAl2015a].
 
-The process of computing a HOG feature image is as follows [@princ2012a;
-@antonAlaboEtAl2015a]. First the image amplitude and orientation of the image
-gradients are computed as in IGO. The gradients are then summarised at two
-levels, cells and blocks. A cell is a small $N_{\mathup{cell}} \times
-N_{\mathup{cell}}$ region, potentially overlapping with its neighbours, in which
-the orientations are summarised into histogram with $N_{\mathup{bins}}$ bins. A
-block is a region of $N_{\mathup{block}} \times N_{\mathup{block}}$ cells. The
-block is normalised using the Euclidean norm, and a final vector is produced for
-each block by concatenating the histograms of its cells. Thus $C =
-N_{\mathup{bins}}N_{\mathup{blocks}}^2$ for HOG. Computing a dense HOG means
-extracting a vector for a block centered at every pixel of the original image. 
+HOG has parameters affecting the dimension of the descriptor and the area over
+which orientations are aggregated. The orientations in a $N_{\mathup{cell}}
+\times N_{\mathup{cell}}$ area are aggregated into a histogram with
+$N_{\mathup{bins}}$ bins. A block of $N_{\mathup{block}} \times
+N_{\mathup{block}}$ cells are then normalised, and the final descriptor vector
+for that block is the concatenation of the normalised histograms. Therefore the
+descriptor describes a $(N_{\mathup{block}} N_{\mathup{cell}})^2$ area of the
+image, and the descriptor vector has $C = N_{\mathup{bins}}
+N_{\mathup{blocks}}^2$ channels.
 
-HOG is a powerful feature that has shown good performance in tasks such as face
-recognition [@antonAlaboEtAl2015a] and human detection [@dalalTrigg2005a].
+### Dense Scale Invariant Feature Transform 
 
-### Scale Invariant Feature Transform 
+The SIFT feature descriptor shares similarities to HOG in that it summarises
+gradients over patches of the image. In its original use [@lowe1999a] the goal
+was to extract a sparse set of key points of the image and then compute a
+descriptor vector at these key points. In this work however we essentially treat
+every pixel as a feature, producing a dense feature set. The main difference to
+HOG is that the area for which the histogram is computed is oriented relative to
+the gradient at that point[@antonAlaboEtAl2015a]. 
 
-The SIFT descriptor aims to 
+SIFT has similar parameters to HOG. Orientations are summarised from an
+$N_{\mathup{cell}} \times N_{\mathup{cell}}$ region into an $N_{\mathup{bins}}$
+bin histogram, and then a block of $N_{\mathup{block}} \times
+N_{\mathup{block}}$ of cells are aggregated into the descriptor. The descriptor
+length is $C = N_{\mathup{bins}} N_{\mathup{blocks}}^2$ again.
+
+In the original SIFT a Gaussian window is applied to the gradients before
+aggregation into the histogram, weighting them by their distance from the
+centre. In this work we use a "fast" variant of SIFT from the VLFeat library
+[@vedaldi08vlfeat] which applies the Gaussian window to the histogram bins after
+aggregation. This is substantially faster, a benefit when computing the feature
+densely, but reportedly has little effect on the accuracy of results.
+
+### DAISY
+
+The DAISY feature descriptor is introduced in [@tolaLepetEtAl2010a], where it is
+used for the task of stereo depth estimation. It is designed for efficiency
+computed densely, as is done here.
+
+DAISY is another method of summarising gradients over a region. Gradients are
+summarised from concentric circles around the feature centre, with more distant
+gradients contributing less. The radius $R$ from the centre to the outermost
+ring controls the spatial dimension over which the orientations are aggregated.
+The number of concentric circles that samples are collected from is $Q$, the
+radius quantisation number. The number of samples from each ring is denoted $T$,
+and the number of bins in a single histogram is $H$. Finally, the total length
+of the descriptor vector is $C = H(Q \times T + 1)$.
 
 # Methodology and implementation
 
@@ -507,18 +517,19 @@ this we detail the design and implementation choices made to fulfill those
 requirements. This section provides the background details, and the actual
 experiments that were run are detailed in [@sec:experiments-and-results].
 
-To evaluate AAMs we will need suitable image datasets. To evaluate the use of
-AAM in real world scenarios we want our datasets to reflect real world images,
-and not be artificially controlled. In [@sec:datasets] we give details of
-various options and select the ones used. We also need a way to evaluate fitting
-results for accuracy; it's helpful as well to make these criteria compatible
-with prior work, to make it possible to compare results across different papers.
-We cover this in [@sec:evaluation-criteria]. Finally we will need a way to
-actually implement the algorithms used. In [@sec:algorithm-implementation] we
-cover this was done.
+To evaluate AAMs we will need suitable image datasets. In order to evaluate the
+use of AAM in real world scenarios we want our datasets to reflect real world
+images, and not be artificially controlled. In [@sec:datasets] we give details
+of various options and select the ones used. We also need a way to evaluate
+fitting results for accuracy; it's helpful as well to make these criteria
+compatible with prior work, to make it possible to compare results across
+different papers. We cover this in [@sec:evaluation-criteria]. Finally we will
+need a way to actually implement the algorithms used. In
+[@sec:algorithm-implementation] we cover how this was done.
 
 <!--
 - Add description of plotting the cumulative error. 
+- Describe how the fitting is intialised
 -->
 
 ## Datasets
@@ -531,7 +542,7 @@ provides an excellent source for suitable datasets. As part of setting up the
 challenge several existing sets of images were annotated with the same 68 point
 landmark configuration. These datasets had existing annotations, but all had
 different configurations making cross-dataset comparison difficult. The sets
-they provided new annotations for were:
+for which they provided new annotations were:
 
 Multi-PIE
 
@@ -565,9 +576,9 @@ LFPW
   and 224 testing images could be downloaded for [@grossMatthEtAl2010a].
   Available openly for reasearch.
 
-HELEN
+Helen
 
-  ~ The HELEN dataset [@leBrandEtAl2012a]
+  ~ The Helen dataset [@leBrandEtAl2012a]
   ~ 2330 images downloaded from the flickr.com web service. Available openly for
   research.
 
@@ -577,12 +588,12 @@ AFW
   ~ 250 images (468 faces) collected from the flickr.com web service. Available
   openly for research.
 
-They also provided a new dataset referred to as **IBUG** which was collected for
-the competition, with 135 images downloaded from the web showing wide variation
-in expression, illumination, and pose.
+The 300 Faces In-The-Wild Challenge also provided a new dataset referred to as
+**IBUG** which was collected for the competition, with 135 images downloaded
+from the web showing wide variation in expression, illumination, and pose.
 
 In addition to these datasets provided for training, they also collected a new
-dataset for testing the contestants entries on. This dataset consists of 300
+dataset for testing the contestants' entries on. This dataset consists of 300
 images taken indoors and 300 taken outdoors, hence the name of the challenge.
 All the images were found on the web. This dataset (600 images in total) is
 referred to as **300W**.
@@ -590,9 +601,9 @@ referred to as **300W**.
 Any datasets that were not collected in-the-wild were not suitable for this
 project. In [@tzimiPanti2013a] it was shown that training an AAM with
 in-the-wild data greatly improves its generalisability. Because of this LFPW,
-HELEN, AFW, IBUG, and 300W were chosen. The IBUG dataset and LFPW training set
-were used for training (946 images), with the remaining 3022 images used for
-testing.
+Helen, AFW, IBUG, and 300W are suitable. The IBUG dataset and LFPW training set
+were used for training (946 images), with the 300W sets and the LFPW testing set
+(824 images) used for testing.
 
 
 ## Result evaluation methodology
@@ -629,103 +640,125 @@ $$
 ## Algorithm implementation
 
 To implement the experiments Python and the `menpo`/`menpofit` packages were
-used. The AAMs were trained on the LFPW and IBUG datasets, and test on the 300w
+used. The AAMs were trained on the LFPW and IBUG datasets, and tested on the 300W
 challenge dataset.
 
 The selection of Python was driven by the availability of the `menpo` packages.
 `menpo` and `menpofit` are Python packages that implement a framework for
 deformable object modelling, including extensible AAM classes.
 
-Table: Image feature defaults
+# Results and analysis
 
------------------------------------------------------
-Feature type  Parameter values              Channels
-------------- ----------------------------- ---------
-HOG           `\(N_{\mathup{bins}} = 9\),   36
-              \(N_{\mathup{block}} = 2\),
-              \(\mathup{cell} = 8\times8\)
-              `{=latex}
+In this section the experimental results are presented. The power of each image
+feature for human face detection with an AAM was evaluated by building an AAM
+using each feature and running them against the testing datasets. The cumulative
+error was plotted for each dataset in [@fig:plotCumErr].
 
-DSIFT         `\(N_{\mathup{bins}} = 9\),   36
-              \(N_{\mathup{block}} = 2\),
-              \(\mathup{cell} = 8\times8\)
-              `{=latex}
+```{#fig:plotCumErr .matplotlib caption="Cumulative error diagrams" format=PDF}
+from itertools import cycle
 
-DAISY         `\(Q = 2\), \(T = 4\),        36
-              \(H = 4\)
-              `{=latex}
------------------------------------------------------
 
-# Experiments and results
+def result_plot(testset_id, ax, xlim = (0, 0.05)):
+    markers = cycle("opv*X")
+    for model_id in exp.models:
+        sampling, cumm_err = exp.process_results(exp.resmgr.load_results(model_id, testset_id))
+        ax.plot(
+            sampling,
+            cumm_err,
+            label=exp.models[model_id]["label"],
+            marker=next(markers),
+            markevery=0.1,
+            markeredgecolor="black",
+        )
+    xsize = abs(xlim[0] - xlim[1])
+    xpad = xsize * 0.05
+    xstep = xsize / 5
+    ax.set_xlim(xlim[0] - xpad, xlim[1] + xpad)
+    ax.set_xticks(np.arange(xlim[0], xlim[1] + xstep, step=xstep))
+    ax.set_yticks(np.arange(0, 1.1, step=0.1))
 
-In this section we present each experiment with its results. We include a short
-discussion in each case.
 
-- Accuracy: what do the fitting errors look like?
-- Convergence speed: How many iterations does it take to converge?
-- What do some representative results look like?
-- What are the failure modes for each image feature?
-- 
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(
+    2,
+    2,
+    figsize=(5.1, 8.5),
+    sharex='col',
+    sharey='row',
+)
+result_plot("lfpw", ax=ax1)
+ax1.set_title("(a) LFPW")
 
-## Accuracy
+result_plot("300w", ax=ax2)
+ax2.set_title("(b) 300W")
 
-The power of each image feature for human face detection with an AAM was
-evaluated by building an AAM using each feature and running them against the
-testing datasets.
+result_plot("300w-indoor", ax=ax3)
+ax3.set_title("(c) 300W Indoors")
 
-The cumulative error was plotted for each dataset. The result is shown in
-[@fig:plotCumErr].
-
-<!--
-- Add axis labels
-- Add grid
-- Add shaped points to make lines distinguishible in greyscale.
-- Will plots sharing axes be better?
-- Fix the legend so it doesn't overlap the plots.
--->
-
-```{#fig:plotCumErr .matplotlib caption="Cumulative error diagrams" format=PDF
-preamble="pandoc-plot/result_plot.py"}
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(5.1, 8.5))
-result_plot('lfpw', ax=ax1)
-ax1.set_title('(a) LFPW')
-
-result_plot('300w', ax=ax2)
-ax2.set_title('(b) 300W')
-
-result_plot('300w-indoor', ax=ax3)
-ax3.set_title('(c) 300W Indoors')
-
-result_plot('300w-outdoor', ax=ax4)
-ax4.set_title('(d) 300W Outdoors')
+result_plot("300w-outdoor", ax=ax4)
+ax4.set_title("(d) 300W Outdoors")
 
 handles, labels = ax4.get_legend_handles_labels()
-plt.figlegend(handles, labels, loc='upper center')
+plt.figlegend(handles, labels, loc="upper center", ncol=2)
+
+ax3.set_xlabel("Error")
+ax4.set_xlabel("Error")
+ax1.set_ylabel("Proportion of images")
+ax3.set_ylabel("Proportion of images")
+for ax in (ax1, ax2, ax3, ax4):
+    ax.grid()
 ```
 
-```{.table #tbl:statsTable}
+```{.table #tbl:stats}
 ---
-caption: 'Table showing the mean and median errors'
+caption: 'Mean and median errors for each testset and image feature combination.'
 markdown: true
-include: stats.csv
+#include: stats.csv
 ...
+Testset,Image feature,Mean error,Median error
+300W,DAISY,0.076,0.043
+,DSIFT,0.096,0.047
+,HOG,0.065,0.037
+,IGO,0.110,0.100
+,Intensity values,0.130,0.110
+300W Indoor,DAISY,0.077,0.042
+,DSIFT,0.095,0.047
+,HOG,0.062,0.038
+,IGO,0.110,0.100
+,Intensity values,0.130,0.120
+300W Outdoor,DAISY,0.076,0.043
+,DSIFT,0.097,0.047
+,HOG,0.069,0.037
+,IGO,0.110,0.099
+,Intensity values,0.130,0.110
+LFPW,DAISY,0.035,0.023
+,DSIFT,0.042,0.025
+,HOG,0.029,0.023
+,IGO,0.065,0.036
+,Intensity values,0.075,0.052
 ```
 
 On each dataset the HOG feature produces the best results. LFPW is the easiest
-dataset and HOG achieves 5% error or less on about 90% of the images.
+dataset and HOG achieves 5% error or less on about 90% of the images. DSIFT and
+DAISY are not far behind however. IGO shows improvement over pixel intensity
+values, but not in the significant way that the others do.
 
-Interestingly IGO achieves little significant improvement over using pixel
-intensity values; this is in contrast to the results of a similar experiment in
-[@antonAlaboEtAl2015a], where 
+The similar performance from HOG, DAISY, and SIFT is not surprising considering
+the similarities between these descriptors; they all aggregate image gradients
+over a local area. It may be that adjusting the parameters for DAISY and SIFT
+would bring them up to the level of HOG, or or send HOG even higher.
 
-## Comparison to other methods
 
 # Conclusion
 
-- Final wrap up what happened
-- Project aims
+This project investigated the use of robust gradient-based feature descriptors
+for the task of facial landmark fitting with Active Appearance Models. The
+results show that AAMs can be trained with just a few hundred images, generalise
+well to unseen images showing wide variations in appearance, illumination,
+pose, and expression. The results also gave insight into the relative power of
+different image features; HOG consistently had the best performance, closely
+followed by DAISY and SIFT. 
 
-# Bibliography
+# Bibliography {.unnumbered}
 
 :::{#refs}
 :::

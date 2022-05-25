@@ -3,5 +3,5 @@ dpi: 160
 strict: true
 
 matplotlib:
-  preamble: pandoc-plot/matplotlib.py
+  preamble: pandoc-plot/matplotlib-preamble.py
   executable: /home/yuri/Documents/University/Assessments/PROJ/src/venv/bin/python
