@@ -480,7 +480,7 @@ was to extract a sparse set of key points of the image and then compute a
 descriptor vector at these key points. In this work however we essentially treat
 every pixel as a feature, producing a dense feature set. The main difference to
 HOG is that the area for which the histogram is computed is oriented relative to
-the gradient at that point[@antonAlaboEtAl2015a]. 
+the gradient at that point [@antonAlaboEtAl2015a].
 
 SIFT has similar parameters to HOG. Orientations are summarised from an
 $N_{\mathup{cell}} \times N_{\mathup{cell}}$ region into an $N_{\mathup{bins}}$
@@ -515,7 +515,7 @@ of the descriptor vector is $C = H(Q \times T + 1)$.
 In this section we define the requirements we need for the experiments. After
 this we detail the design and implementation choices made to fulfill those
 requirements. This section provides the background details, and the actual
-experiments that were run are detailed in [@sec:experiments-and-results].
+experiments that were run are detailed in [@sec:results-and-analysis].
 
 To evaluate AAMs we will need suitable image datasets. In order to evaluate the
 use of AAM in real world scenarios we want our datasets to reflect real world
@@ -523,8 +523,8 @@ images, and not be artificially controlled. In [@sec:datasets] we give details
 of various options and select the ones used. We also need a way to evaluate
 fitting results for accuracy; it's helpful as well to make these criteria
 compatible with prior work, to make it possible to compare results across
-different papers. We cover this in [@sec:evaluation-criteria]. Finally we will
-need a way to actually implement the algorithms used. In
+different papers. We cover this in [@sec:result-evaluation-methodology]. Finally
+we will need a way to actually implement the algorithms used. In
 [@sec:algorithm-implementation] we cover how this was done.
 
 <!--
