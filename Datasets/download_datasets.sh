@@ -13,14 +13,21 @@ links=(
   "https://ibug.doc.ic.ac.uk/download/annotations/300w.zip.002"
   "https://ibug.doc.ic.ac.uk/download/annotations/300w.zip.003"
   "https://ibug.doc.ic.ac.uk/download/annotations/300w.zip.004"
-  "https://ibug.doc.ic.ac.uk/download/annotations/300w_cropped.zip"
-  "https://ibug.doc.ic.ac.uk/download/annotations/afw.zip"
-  "https://ibug.doc.ic.ac.uk/download/annotations/helen.zip"
+  # "https://ibug.doc.ic.ac.uk/download/annotations/300w_cropped.zip"
+  # "https://ibug.doc.ic.ac.uk/download/annotations/afw.zip"
+  # "https://ibug.doc.ic.ac.uk/download/annotations/helen.zip"
   "https://ibug.doc.ic.ac.uk/download/annotations/ibug.zip"
   "https://ibug.doc.ic.ac.uk/download/annotations/lfpw.zip"
 )
 
-sets=("300w" "300w_cropped" "afw" "helen" "ibug" "lfpw")
+sets=(
+  "300w"
+  # "300w_cropped"
+  # "afw"
+  # "helen"
+  "ibug"
+  "lfpw"
+)
 
 for link in "${links[@]}"
 do
